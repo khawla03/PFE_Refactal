@@ -141,45 +141,60 @@ valign = 1
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 margin_top = 158.0
 margin_right = 432.0
-margin_bottom = 226.0
+margin_bottom = 193.0
 size_flags_vertical = 3
 
 [node name="NewGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 234.0
+margin_top = 201.0
 margin_right = 432.0
-margin_bottom = 314.0
+margin_bottom = 281.0
 rect_min_size = Vector2( 0, 80 )
 mouse_default_cursor_shape = 2
 text = "New Game"
 
 [node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 322.0
+margin_top = 289.0
 margin_right = 432.0
-margin_bottom = 402.0
+margin_bottom = 369.0
 rect_min_size = Vector2( 0, 80 )
 mouse_default_cursor_shape = 2
 disabled = true
 text = "Continue"
 
 [node name="LevelsButton" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 410.0
+margin_top = 377.0
 margin_right = 432.0
-margin_bottom = 490.0
+margin_bottom = 457.0
 rect_min_size = Vector2( 0, 80 )
 mouse_default_cursor_shape = 2
 toggle_mode = true
 text = "Levels"
 
 [node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_top = 498.0
+margin_top = 465.0
 margin_right = 432.0
-margin_bottom = 567.0
+margin_bottom = 501.0
+size_flags_vertical = 3
+
+[node name="levelEditor" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 509.0
+margin_right = 432.0
+margin_bottom = 589.0
+rect_min_size = Vector2( 0, 80 )
+mouse_default_cursor_shape = 2
+toggle_mode = true
+text = "CreateLevel"
+
+[node name="Control5" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 597.0
+margin_right = 432.0
+margin_bottom = 632.0
 size_flags_vertical = 3
 
 [node name="LeaderBoard" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 575.0
+margin_top = 640.0
 margin_right = 432.0
-margin_bottom = 655.0
+margin_bottom = 720.0
 rect_min_size = Vector2( 0, 80 )
 mouse_default_cursor_shape = 2
 custom_constants/hseparation = 16
@@ -187,15 +202,15 @@ text = "Leaderboard"
 icon = ExtResource( 6 )
 
 [node name="Control4" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_top = 663.0
+margin_top = 728.0
 margin_right = 432.0
-margin_bottom = 731.0
+margin_bottom = 764.0
 size_flags_vertical = 3
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 739.0
+margin_top = 772.0
 margin_right = 432.0
-margin_bottom = 819.0
+margin_bottom = 852.0
 rect_min_size = Vector2( 0, 80 )
 mouse_default_cursor_shape = 2
 custom_constants/hseparation = 16
@@ -203,9 +218,9 @@ text = "Settings"
 icon = ExtResource( 4 )
 
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
-margin_top = 827.0
+margin_top = 860.0
 margin_right = 432.0
-margin_bottom = 907.0
+margin_bottom = 940.0
 rect_min_size = Vector2( 0, 80 )
 mouse_default_cursor_shape = 2
 custom_constants/hseparation = 16
@@ -213,15 +228,15 @@ text = "Quit Game"
 icon = ExtResource( 3 )
 
 [node name="Control3" type="Control" parent="MarginContainer/VBoxContainer"]
-margin_top = 915.0
+margin_top = 948.0
 margin_right = 432.0
-margin_bottom = 984.0
+margin_bottom = 983.0
 size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 992.0
+margin_top = 991.0
 margin_right = 432.0
-margin_bottom = 1032.0
+margin_bottom = 1031.0
 size_flags_horizontal = 3
 alignment = 1
 
@@ -249,6 +264,7 @@ anims/show = SubResource( 6 )
 [connection signal="button_up" from="MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_button_up"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/LevelsButton" to="." method="_on_LevelsButton_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/levelEditor" to="." method="_on_levelEditor_pressed"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/LeaderBoard" to="." method="_on_LeaderBoard_button_up"]
 [connection signal="button_up" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_button_up"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
