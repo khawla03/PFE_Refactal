@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Kozirsky-New-Land.ogg-4c2e8122b93f7a9ff02667b295340ef0.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Kozirsky-New-Land.ogg"
+dest_files=[ "res://.import/Kozirsky-New-Land.ogg-4c2e8122b93f7a9ff02667b295340ef0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

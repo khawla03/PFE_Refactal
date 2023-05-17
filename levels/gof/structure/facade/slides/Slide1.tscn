@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/gof/structure/facade/slides/PFE-Page-5.drawio.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/title2.tres" type="DynamicFont" id=2]
+
+[node name="Slide1" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 100
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 100
+
+[node name="HBox" type="HBoxContainer" parent="Margin"]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 1820.0
+margin_bottom = 980.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox"]
+margin_right = 1268.0
+margin_bottom = 880.0
+size_flags_horizontal = 3
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/HBox/VBox"]
+margin_top = 208.0
+margin_right = 1268.0
+margin_bottom = 291.0
+text = "The Facade design pattern is one of the twenty-three well-known GoF design patterns."
+autowrap = true
+
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox/VBox"]
+margin_top = 341.0
+margin_right = 1268.0
+margin_bottom = 672.0
+custom_constants/separation = 30
+
+[node name="Label2" type="Label" parent="Margin/HBox/VBox/VBox"]
+margin_right = 1268.0
+margin_bottom = 62.0
+custom_fonts/font = ExtResource( 2 )
+text = "What is it?"
+autowrap = true
+
+[node name="Label" type="Label" parent="Margin/HBox/VBox/VBox"]
+margin_top = 92.0
+margin_right = 1268.0
+margin_bottom = 261.0
+text = "A facade is a class that provides a simple interface to a complex subsystem which contains lots of moving parts. A facade might provide limited functionality in comparison to working with the subsystem directly. However, it includes only those features that clients really care about."
+autowrap = true
+
+[node name="Label3" type="Label" parent="Margin/HBox/VBox/VBox"]
+margin_top = 291.0
+margin_right = 1268.0
+margin_bottom = 331.0
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="Margin/HBox"]
+margin_left = 1318.0
+margin_top = 264.0
+margin_right = 1720.0
+margin_bottom = 616.0
+size_flags_vertical = 4
+texture = ExtResource( 1 )

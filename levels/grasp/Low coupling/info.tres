@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://levels/grasp/Expert/info.tres" type="Resource" id=1]
+[ext_resource path="res://entities/level/LevelInfo.gd" type="Script" id=2]
+
+[resource]
+resource_name = "info.tres"
+script = ExtResource( 2 )
+id = "LowCoupling1"
+title = "LowCoupling"
+shortDescription = "Low Coupling pattern"
+description = "Learn and practice the Low coupling GRASP pattern."
+path = "res://levels/grasp/Low coupling/LowCouplingLevel.tscn"
+next_level = ExtResource( 1 )

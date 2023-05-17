@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://entities/level/LevelInfo.gd" type="Script" id=1]
+[ext_resource path="res://levels/gof/Behavior/State/Info.tres" type="Resource" id=2]
+
+[resource]
+resource_name = "Info"
+script = ExtResource( 1 )
+id = "FacadeLevel1"
+title = "Facade Level"
+shortDescription = "Facade Level"
+description = "Level description."
+path = "res://levels/gof/structure/facade/FacadeLevel.tscn"
+next_level = ExtResource( 2 )

@@ -1,0 +1,212 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://levels/grasp/controller/ControllerLevel.gd" type="Script" id=1]
+[ext_resource path="res://entities/level/PlayerSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/map/Map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/grasp/controller/info.tres" type="Resource" id=4]
+[ext_resource path="res://levels/grasp/controller/lightmap/lightmap.lmbake" type="BakedLightmapData" id=5]
+[ext_resource path="res://entities/doors/DoorSingle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/doors/Door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/screen/ScreenSquare.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/screen/WideScreen.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/computer/Computer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://entities/doors/Lights.tscn" type="PackedScene" id=11]
+[ext_resource path="res://entities/Item.gd" type="Script" id=12]
+[ext_resource path="res://levels/grasp/controller/slides/Slide1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://entities/slider/Slider.tscn" type="PackedScene" id=14]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Code
+
+
+var screens = [
+	getObject(\"Screen1\"),
+	getObject(\"Screen2\"),
+	getObject(\"Screen3\")
+]
+
+
+# Take a string expression and return string result
+func executeExpression(expression: String) -> String:
+	var e = Expression.new()
+	e.parse(expression)
+	return str(e.execute())
+
+
+# Enters the password' digits on the right screens
+func enterPassword(expression: String):
+	var password = executeExpression(expression)
+	if password.length() != 3:
+		password = \"%03d\" % int(password)
+	for i in 3:
+		screens[i].setValue(password[i])
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Code
+
+
+var calc = getObject(\"Calculator\")
+
+# Implement the controller class
+"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Screen
+
+
+
+# Called when the screen value changed
+func onValueChanged(expression):
+	var calculatorController = getObject(\"CalculatorController\") 
+	if calculatorController.has_method(\"enterPassword\"):
+		calculatorController.enterPassword(expression)
+
+
+"
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Screen
+
+"
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Screen
+
+"
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Screen
+
+"
+
+[node name="ControllerLevel" type="Spatial"]
+script = ExtResource( 1 )
+level_info = ExtResource( 4 )
+slider = NodePath("Slider")
+map = NodePath("Map")
+spawner = NodePath("PlayerSpawner")
+
+[node name="Slider" parent="." instance=ExtResource( 14 )]
+slide_scenes = [ ExtResource( 13 ) ]
+
+[node name="Map" parent="." instance=ExtResource( 3 )]
+data = {
+"cells": PoolIntArray( 6, 0, 1612054539, 65530, 0, 1611661323, 1, 1, 1611661317, 3, 1, 1611661317, 5, 1, 1611268098, 65531, 1, 1611661314, 65533, 1, 1611661317, 65535, 1, 1611661317, 262145, 1, 1611137049, 262147, 1, 1611137049, 262149, 1, 1611137049, 327675, 1, 1611137049, 327677, 1, 1611137049, 327679, 1, 1611137049, 0, 2, 1611268133, 2, 2, 1611268129, 4, 2, 1611268103, 6, 2, 1611268127, 65530, 2, 1611268127, 65532, 2, 1611268103, 65534, 2, 1611268129, 0, 3, 1611268138, 0, 65513, 1610612773, 2, 65513, 1610612769, 65534, 65513, 1610612769, 1, 65514, 1612054530, 65535, 65514, 1610612738, 262145, 65514, 1611137049, 327679, 65514, 1611137049, 2, 65515, 1612054535, 65534, 65515, 1611661319, 65535, 65516, 1610612739, 262145, 65516, 1611137049, 327679, 65516, 1611137049, 2, 65517, 1612054560, 65534, 65517, 1611661344, 65535, 65518, 1610612739, 262145, 65518, 1611137049, 327679, 65518, 1611137049, 2, 65519, 1612054535, 65534, 65519, 1611661319, 1, 65520, 1611268098, 65535, 65520, 1611661314, 262145, 65520, 1611137049, 327679, 65520, 1611137049, 0, 65521, 1611268131, 2, 65521, 1611268129, 65534, 65521, 1611268129, 0, 65522, 1610612770, 2, 65522, 1611268129, 4, 65522, 1610612751, 6, 65522, 1611268127, 65530, 65522, 1611268127, 65532, 65522, 1610612751, 65534, 65522, 1611268129, 1, 65523, 1612054533, 3, 65523, 1612054533, 5, 65523, 1612054530, 65531, 65523, 1610612738, 65533, 65523, 1612054533, 65535, 65523, 1612054533, 262145, 65523, 1611137049, 262147, 65523, 1611137049, 262149, 65523, 1611137049, 327675, 65523, 1611137049, 327677, 65523, 1611137049, 327679, 65523, 1611137049, 6, 65524, 1612054539, 65530, 65524, 1611661323, 1, 65525, 1612054528, 3, 65525, 1612054528, 5, 65525, 1611268101, 65531, 65525, 1610612741, 65533, 65525, 1612054528, 65535, 65525, 1612054528, 262145, 65525, 1611137049, 262147, 65525, 1611137049, 262149, 65525, 1611137049, 327675, 65525, 1611137049, 327677, 65525, 1611137049, 327679, 65525, 1611137049, 6, 65526, 1612054560, 65530, 65526, 1611661344, 1, 65527, 1612054532, 3, 65527, 1612054528, 5, 65527, 1611268101, 65531, 65527, 1610612741, 65533, 65527, 1612054528, 65535, 65527, 1612054532, 262145, 65527, 1611137047, 262147, 65527, 1611137049, 262149, 65527, 1611137049, 327675, 65527, 1611137049, 327677, 65527, 1611137049, 327679, 65527, 1611137048, 6, 65528, 1612054539, 65530, 65528, 1611661323, 1, 65529, 1612054532, 3, 65529, 1612054528, 5, 65529, 1611268101, 65531, 65529, 1610612741, 65533, 65529, 1612054528, 65535, 65529, 1612054532, 262145, 65529, 1611137048, 262147, 65529, 1611137049, 262149, 65529, 1611137049, 327675, 65529, 1611137049, 327677, 65529, 1611137049, 327679, 65529, 1611137047, 6, 65530, 1612054560, 65530, 65530, 1611661344, 1, 65531, 1612054528, 3, 65531, 1612054528, 5, 65531, 1611268101, 65531, 65531, 1610612741, 65533, 65531, 1612054528, 65535, 65531, 1612054528, 262145, 65531, 1611137049, 262147, 65531, 1611137049, 262149, 65531, 1611137049, 327675, 65531, 1611137049, 327677, 65531, 1611137049, 327679, 65531, 1611137049, 6, 65532, 1612054539, 65530, 65532, 1611661323, 1, 65533, 1612054528, 3, 65533, 1612054528, 5, 65533, 1611268101, 65531, 65533, 1610612741, 65533, 65533, 1612054528, 65535, 65533, 1612054528, 262145, 65533, 1611137049, 262147, 65533, 1611137049, 262149, 65533, 1611137049, 327675, 65533, 1611137049, 327677, 65533, 1611137049, 327679, 65533, 1611137049, 6, 65534, 1612054560, 65530, 65534, 1611661344, 1, 65535, 1612054528, 3, 65535, 1612054528, 5, 65535, 1611268101, 65531, 65535, 1610612741, 65533, 65535, 1612054528, 65535, 65535, 1612054528, 262145, 65535, 1611137049, 262147, 65535, 1611137049, 262149, 65535, 1611137049, 327675, 65535, 1611137049, 327677, 65535, 1611137049, 327679, 65535, 1611137049 )
+}
+
+[node name="PlayerSpawner" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, 1.5 )
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -10 )
+extents = Vector3( 10, 4, 14.5 )
+quality = 0
+use_hdr = false
+use_color = false
+capture_quality = 0
+light_data = ExtResource( 5 )
+
+[node name="Lights" type="Spatial" parent="."]
+
+[node name="OmniLight" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -5.5 )
+omni_range = 20.0
+
+[node name="OmniLight2" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -18.5 )
+omni_range = 15.0
+
+[node name="Item" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 21 )
+
+[node name="Calculator" type="StaticBody" parent="Item"]
+script = ExtResource( 12 )
+code = SubResource( 1 )
+display_name = "Calculator"
+description = "Calculator class"
+is_programmable = true
+
+[node name="CalculatorController" type="StaticBody" parent="Item"]
+script = ExtResource( 12 )
+code = SubResource( 2 )
+display_name = "CalculatorController"
+description = "Enters the password digits on the screens"
+is_programmable = true
+
+[node name="Computer" parent="Item" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4365, 0.5, -28.43 )
+display_name = "Computer"
+is_interactable = true
+interaction_message = "to use"
+
+[node name="Door" parent="Item" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0.5, -34.5 )
+display_name = "Door"
+description = "Put the result of the expression in the screen above"
+lights_path = NodePath("../Lights")
+
+[node name="DoorSingle" parent="Item" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.5, 0.5, -43.5 )
+display_name = "Exit Door"
+description = "Open to exit"
+is_interactable = true
+interaction_message = "to open"
+
+[node name="Screen" parent="Item" instance=ExtResource( 9 )]
+transform = Transform( 1.2, 0, 0, 0, 0.6, -1.03923, 0, 1.03923, 0.6, 3.5, 4.15612, -34.4763 )
+code = SubResource( 3 )
+display_name = "ExpressionScreen"
+description = "Shows an expression to calculate"
+is_programmable = true
+locked = true
+connect_on_value_changed = true
+
+[node name="Pass1" parent="Item" instance=ExtResource( 8 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.98153, 3.72004, -34.6574 )
+code = SubResource( 4 )
+display_name = "Screen1"
+description = "Put the third digit"
+is_programmable = true
+locked = true
+value = "0"
+can_set_value = true
+
+[node name="Pass2" parent="Item" instance=ExtResource( 8 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.4964, 3.72004, -34.6574 )
+code = SubResource( 5 )
+display_name = "Screen2"
+description = "Put the second digit"
+is_programmable = true
+locked = true
+value = "0"
+can_set_value = true
+
+[node name="Pass3" parent="Item" instance=ExtResource( 8 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.00478, 3.72004, -34.6574 )
+code = SubResource( 6 )
+display_name = "Screen3"
+description = "Put the first digit"
+is_programmable = true
+locked = true
+value = "0"
+can_set_value = true
+
+[node name="Lights" parent="Item" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4.38779, 3.73336, -34.7331 )
+display_name = "Lights"
+description = "Door light"
+lights = 3
+
+[node name="ExpressionChanger" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="PasswordChecker" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="opened" from="Item/Door" to="." method="_on_Door_opened"]
+[connection signal="interact" from="Item/DoorSingle" to="." method="_on_DoorSingle_interact"]
+[connection signal="timeout" from="ExpressionChanger" to="." method="_on_ExpressionChanger_timeout"]
+[connection signal="timeout" from="PasswordChecker" to="." method="_on_PasswordChecker_timeout"]

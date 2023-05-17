@@ -1,0 +1,32 @@
+{
+	"glossary": [
+		{
+			"extra": "",
+			"id": "1659351979-648",
+			"name": "New glossary entry",
+			"text": "",
+			"title": "",
+			"type": 1
+		}
+	],
+	"variables": [
+		{
+			"id": "1683159621-648",
+			"name": "Bonus",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1652974819-787",
+			"name": "station1_name",
+			"type": 0,
+			"value": "Orbite"
+		},
+		{
+			"id": "1652974798-648",
+			"name": "guide_name",
+			"type": 0,
+			"value": "Baz"
+		}
+	]
+}

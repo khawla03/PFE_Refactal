@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/access_denied.ogg-82934a91aee4700dd7703722faab2b1a.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/access_denied.ogg"
+dest_files=[ "res://.import/access_denied.ogg-82934a91aee4700dd7703722faab2b1a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

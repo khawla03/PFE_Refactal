@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/observer_0.ogg-2eb582a47f95247445d759d95917e390.oggstr"
+
+[deps]
+
+source_file="res://levels/gof/observer/story/observer_0.ogg"
+dest_files=[ "res://.import/observer_0.ogg-2eb582a47f95247445d759d95917e390.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

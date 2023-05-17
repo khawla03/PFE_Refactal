@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://entities/level/LevelInfo.gd" type="Script" id=1]
+[ext_resource path="res://levels/gof/Creation/Factory/Info.tres" type="Resource" id=2]
+[ext_resource path="res://levels/smells/duplication/splash.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+id = "duplication1"
+title = "Code Duplication"
+shortDescription = ""
+description = "Learn how to avoid code duplication."
+splash = ExtResource( 3 )
+path = "res://levels/smells/duplication/CodeDuplicationLevel.tscn"
+next_level = ExtResource( 2 )

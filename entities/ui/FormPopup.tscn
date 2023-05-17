@@ -1,0 +1,181 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://entities/ui/FormPopup.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0431373, 0.0392157, 0.0392157, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+bg_color = Color( 0.101961, 0.45098, 0.909804, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+bg_color = Color( 0.101961, 0.45098, 0.909804, 0.784314 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Panel:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "hide"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ NodePath("Panel") ],
+"method": "_hide_rect"
+}, {
+"args": [ NodePath("ColorRect") ],
+"method": "_hide_rect"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "show"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ NodePath("ColorRect") ],
+"method": "_show_rect"
+}, {
+"args": [ NodePath("Panel") ],
+"method": "_show_rect"
+} ]
+}
+
+[node name="FormPopup" type="Control"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -574.0
+margin_top = -119.0
+margin_bottom = 119.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 37.0
+rect_scale = Vector2( 1e-05, 1 )
+rect_pivot_offset = Vector2( 574, 0 )
+color = Color( 0.101961, 0.45098, 0.909804, 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_bottom = 37.0
+rect_scale = Vector2( 1e-05, 1 )
+rect_pivot_offset = Vector2( 567, 0 )
+custom_styles/panel = SubResource( 1 )
+
+[node name="Margin" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 24
+custom_constants/margin_top = 16
+custom_constants/margin_left = 24
+custom_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="Panel/Margin"]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 544.0
+margin_bottom = 259.0
+custom_constants/separation = 24
+alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="Panel/Margin/VBox"]
+margin_right = 520.0
+margin_bottom = 83.0
+bbcode_enabled = true
+bbcode_text = "[center]Please fill this evaluation form if you haven't yet [img=<32>]res://assets/textures/emo_pray.png[/img][/center]"
+text = "Please fill this evaluation form if you haven't yet "
+fit_content_height = true
+
+[node name="English" type="Button" parent="Panel/Margin/VBox"]
+margin_top = 107.0
+margin_right = 520.0
+margin_bottom = 163.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+text = "English version "
+
+[node name="French" type="Button" parent="Panel/Margin/VBox"]
+margin_top = 187.0
+margin_right = 520.0
+margin_bottom = 243.0
+mouse_default_cursor_shape = 2
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+text = "French version "
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/hide = SubResource( 6 )
+anims/show = SubResource( 4 )
+
+[connection signal="button_up" from="Panel/Margin/VBox/English" to="." method="_on_English_button_up"]
+[connection signal="button_up" from="Panel/Margin/VBox/French" to="." method="_on_French_button_up"]

@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/smells/duplication/slides/Spiderman-meme.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/title2.tres" type="DynamicFont" id=2]
+
+[node name="Slide1" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBox" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="Margin" type="MarginContainer" parent="HBox"]
+margin_right = 1218.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 50
+custom_constants/margin_left = 100
+
+[node name="VBox" type="VBoxContainer" parent="HBox/Margin"]
+margin_left = 100.0
+margin_right = 1168.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+custom_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="HBox/Margin/VBox"]
+margin_top = 222.0
+margin_right = 1068.0
+margin_bottom = 305.0
+text = "Code duplication is one of the most frequent bad habits in programming."
+autowrap = true
+
+[node name="VBox" type="VBoxContainer" parent="HBox/Margin/VBox"]
+margin_top = 405.0
+margin_right = 1068.0
+margin_bottom = 858.0
+custom_constants/separation = 50
+
+[node name="Label2" type="Label" parent="HBox/Margin/VBox/VBox"]
+margin_right = 1068.0
+margin_bottom = 62.0
+custom_fonts/font = ExtResource( 2 )
+text = "What is it?"
+
+[node name="Label3" type="Label" parent="HBox/Margin/VBox/VBox"]
+margin_top = 112.0
+margin_right = 1068.0
+margin_bottom = 453.0
+text = "It consists of duplicating a chunk of code in different places. Sometimes the code seems different but it does the same thing, and it’s harder to find in this case.
+
+This habit makes the code harder to maintain or change. If the duplicated logic has to be changed, you have to change it wherever it’s duplicated… Painful doesn’t it?
+"
+autowrap = true
+
+[node name="Margin2" type="MarginContainer" parent="HBox"]
+margin_left = 1222.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_constants/margin_right = 100
+custom_constants/margin_left = 50
+
+[node name="TextureRect" type="TextureRect" parent="HBox/Margin2"]
+margin_left = 50.0
+margin_top = 322.0
+margin_right = 598.0
+margin_bottom = 758.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 1 )

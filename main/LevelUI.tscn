@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fonts/Montserrat-Medium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://main/LevelUI.gd" type="Script" id=2]
+[ext_resource path="res://assets/icons/ic_lock.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=17]
+size = 24
+font_data = ExtResource( 1 )
+
+[node name="LevelUI" type="Button"]
+margin_right = 432.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+mouse_default_cursor_shape = 2
+toggle_mode = true
+script = ExtResource( 2 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_constants/margin_right = 16
+custom_constants/margin_left = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+margin_left = 16.0
+margin_right = 416.0
+margin_bottom = 100.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+margin_right = 364.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 4.0
+margin_right = 364.0
+margin_bottom = 44.0
+mouse_filter = 1
+size_flags_vertical = 6
+text = "Level 1"
+
+[node name="ShortDesciption" type="RichTextLabel" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 364.0
+margin_bottom = 100.0
+mouse_filter = 1
+size_flags_vertical = 3
+custom_colors/default_color = Color( 1, 1, 1, 0.666667 )
+custom_fonts/normal_font = SubResource( 17 )
+text = "Code Duplication"
+
+[node name="Lock" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+margin_left = 368.0
+margin_top = 34.0
+margin_right = 400.0
+margin_bottom = 66.0
+size_flags_vertical = 4
+texture = ExtResource( 3 )
+
+[connection signal="pressed" from="." to="." method="_on_LevelUI_pressed"]

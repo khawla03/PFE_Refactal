@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Fast-Glitch-1.ogg-6c140bcda6e0aa2ec14063e437133dcc.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/Fast-Glitch-1.ogg"
+dest_files=[ "res://.import/Fast-Glitch-1.ogg-6c140bcda6e0aa2ec14063e437133dcc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

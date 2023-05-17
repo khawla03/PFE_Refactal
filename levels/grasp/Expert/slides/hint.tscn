@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/fonts/title2.tres" type="DynamicFont" id=2]
+
+[node name="Slide1" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 100
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 100
+
+[node name="HBox" type="HBoxContainer" parent="Margin"]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 1820.0
+margin_bottom = 980.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox"]
+margin_right = 1670.0
+margin_bottom = 880.0
+size_flags_horizontal = 3
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/HBox/VBox"]
+margin_top = 272.0
+margin_right = 1670.0
+margin_bottom = 312.0
+text = "Looks like all functions are in the main class"
+autowrap = true
+
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox/VBox"]
+margin_top = 362.0
+margin_right = 1670.0
+margin_bottom = 607.0
+custom_constants/separation = 30
+
+[node name="Label2" type="Label" parent="Margin/HBox/VBox/VBox"]
+margin_right = 1670.0
+margin_bottom = 62.0
+custom_fonts/font = ExtResource( 2 )
+text = "What you need to do ?"
+autowrap = true
+
+[node name="Label" type="Label" parent="Margin/HBox/VBox/VBox"]
+margin_top = 92.0
+margin_right = 1670.0
+margin_bottom = 175.0
+text = "You need to take each function to its class expert. To know which one, check the called variables in each class, and the needed variables inside each function."
+autowrap = true
+
+[node name="Label3" type="Label" parent="Margin/HBox/VBox/VBox"]
+margin_top = 205.0
+margin_right = 1670.0
+margin_bottom = 245.0
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="Margin/HBox"]
+margin_left = 1720.0
+margin_top = 440.0
+margin_right = 1720.0
+margin_bottom = 440.0
+size_flags_vertical = 4

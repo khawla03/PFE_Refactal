@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="test slide" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = 680.0
+margin_top = 502.0
+margin_right = 1217.0
+margin_bottom = 663.0
+text = "Test level 1"
+valign = 1

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/speech2.ogg-4ee3d5038df7cdba29fbbf6b30aaa711.oggstr"
+
+[deps]
+
+source_file="res://levels/demo/speech/speech2.ogg"
+dest_files=[ "res://.import/speech2.ogg-4ee3d5038df7cdba29fbbf6b30aaa711.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://entities/level/LevelInfo.gd" type="Script" id=1]
+[ext_resource path="res://levels/demo/info.tres" type="Resource" id=2]
+[ext_resource path="res://levels/gof/observer/splash.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+id = "observer1"
+title = "Observer"
+shortDescription = "React to state change"
+description = "Level designed to learn and practice the observer behavior design pattern."
+splash = ExtResource( 3 )
+path = "res://levels/gof/observer/ObserverLevel.tscn"
+next_level = ExtResource( 2 )

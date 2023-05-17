@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://entities/ui/InfoRes.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+key = "extract_method"
+text = "Move the code to a separate new method (or function) and replace the old code with a call to the method."

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/speech_test.mp3-e88dc5124e22885dd6a05cd882e1c932.mp3str"
+
+[deps]
+
+source_file="res://story/intro/speech/speech_test.mp3"
+dest_files=[ "res://.import/speech_test.mp3-e88dc5124e22885dd6a05cd882e1c932.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

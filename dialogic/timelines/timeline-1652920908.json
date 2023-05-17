@@ -1,0 +1,138 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://story/intro/speech/intro_guide_0.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Welcome engineer! I’m [color=#A5EFAC][guide_name][/color]. My role is to guide you through your mission."
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://story/intro/speech/intro_guide_1.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "One of our space stations is broken down… This station is called  [color=#A5EFAC][station1_name][/color]."
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://story/intro/speech/intro_guide_2.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The remote control interface is not responding. So, we can’t access the central system to fix the problem as we usually do. We have to move to the station to fix this issue."
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://story/intro/speech/intro_guide_3.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "According to our experts, this is due to the bad coding habits of our technicians."
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://story/intro/speech/intro_guide_4.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That’s why you have been selected for this mission! Your goal is to access the local control interface and fix the bugs."
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "",
+			"volume": 0
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		},
+		{
+			"emit_signal": "",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1652920908.json",
+		"name": "intro"
+	}
+}

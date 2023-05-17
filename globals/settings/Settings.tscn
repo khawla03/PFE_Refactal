@@ -1,0 +1,198 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/themes/main_menu_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/fonts/title1.tres" type="DynamicFont" id=2]
+[ext_resource path="res://globals/settings/Settings.gd" type="Script" id=3]
+[ext_resource path="res://globals/settings/AudioSettings.tscn" type="PackedScene" id=4]
+[ext_resource path="res://globals/settings/CheckSettings.tscn" type="PackedScene" id=5]
+
+[node name="Settings" type="CanvasLayer"]
+layer = 7
+script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="Margin" type="MarginContainer" parent="Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+
+[node name="VBox" type="VBoxContainer" parent="Background/Margin"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 1888.0
+margin_bottom = 1048.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="Background/Margin/VBox"]
+margin_right = 1856.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+custom_fonts/font = ExtResource( 2 )
+text = "Settings"
+align = 1
+valign = 1
+
+[node name="Tabs" type="TabContainer" parent="Background/Margin/VBox"]
+margin_top = 132.0
+margin_right = 1856.0
+margin_bottom = 884.0
+size_flags_vertical = 3
+
+[node name="Display" type="Tabs" parent="Background/Margin/VBox/Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 74.0
+margin_right = -64.0
+margin_bottom = -32.0
+mouse_default_cursor_shape = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Background/Margin/VBox/Tabs/Display"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="Background/Margin/VBox/Tabs/Display/Scroll"]
+margin_right = 1728.0
+margin_bottom = 204.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Fullscreen" parent="Background/Margin/VBox/Tabs/Display/Scroll/VBox" instance=ExtResource( 5 )]
+anchor_right = 0.0
+margin_right = 1728.0
+margin_bottom = 100.0
+title = "Fullscreen"
+settings_key = "DISPLAY_FULLSCREEN"
+method = "set_fullscreen"
+
+[node name="Vsync" parent="Background/Margin/VBox/Tabs/Display/Scroll/VBox" instance=ExtResource( 5 )]
+anchor_right = 0.0
+margin_top = 104.0
+margin_right = 1728.0
+margin_bottom = 204.0
+title = "Vsync"
+settings_key = "DISPLAY_VSYNC"
+method = "set_vsync"
+
+[node name="Audio" type="Tabs" parent="Background/Margin/VBox/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 136.0
+margin_right = -64.0
+margin_bottom = -32.0
+mouse_default_cursor_shape = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Background/Margin/VBox/Tabs/Audio"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="Background/Margin/VBox/Tabs/Audio/Scroll"]
+margin_right = 1728.0
+margin_bottom = 412.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="AudioSettings" parent="Background/Margin/VBox/Tabs/Audio/Scroll/VBox" instance=ExtResource( 4 )]
+anchor_right = 0.0
+margin_right = 1728.0
+margin_bottom = 100.0
+title = "Music volume"
+settings_key = "AUDIO_VOL_MUSIC"
+settings_mute_key = "AUDIO_MUTE_MUSIC"
+audio_bus_name = "Music"
+
+[node name="AudioSettings2" parent="Background/Margin/VBox/Tabs/Audio/Scroll/VBox" instance=ExtResource( 4 )]
+anchor_right = 0.0
+margin_top = 104.0
+margin_right = 1728.0
+margin_bottom = 204.0
+title = "Menu sounds volume"
+settings_key = "AUDIO_VOL_UI_SFX"
+settings_mute_key = "AUDIO_MUTE_UI_SFX"
+audio_bus_name = "UI_SFX"
+
+[node name="AudioSettings3" parent="Background/Margin/VBox/Tabs/Audio/Scroll/VBox" instance=ExtResource( 4 )]
+anchor_right = 0.0
+margin_top = 208.0
+margin_right = 1728.0
+margin_bottom = 308.0
+title = "In-game sounds volume"
+settings_key = "AUDIO_VOL_SFX"
+settings_mute_key = "AUDIO_MUTE_SFX"
+audio_bus_name = "SFX"
+
+[node name="AudioSettings4" parent="Background/Margin/VBox/Tabs/Audio/Scroll/VBox" instance=ExtResource( 4 )]
+anchor_right = 0.0
+margin_top = 312.0
+margin_right = 1728.0
+margin_bottom = 412.0
+title = "Speech"
+settings_key = "AUDIO_VOL_SPEECH"
+settings_mute_key = "AUDIO_MUTE_SPEECH"
+audio_bus_name = "Speech"
+
+[node name="Other" type="Tabs" parent="Background/Margin/VBox/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 136.0
+margin_right = -64.0
+margin_bottom = -32.0
+mouse_default_cursor_shape = 2
+
+[node name="Scroll" type="ScrollContainer" parent="Background/Margin/VBox/Tabs/Other"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="Background/Margin/VBox/Tabs/Other/Scroll"]
+margin_right = 1728.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="Background/Margin/VBox/Tabs/Other/Scroll/VBox"]
+margin_right = 1728.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
+mouse_default_cursor_shape = 2
+text = "Reset game progress"
+
+[node name="HBox" type="HBoxContainer" parent="Background/Margin/VBox"]
+margin_top = 916.0
+margin_right = 1856.0
+margin_bottom = 1016.0
+
+[node name="Reset" type="Button" parent="Background/Margin/VBox/HBox"]
+visible = false
+margin_right = 400.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 400, 100 )
+text = "Reset Settings"
+
+[node name="Control" type="Control" parent="Background/Margin/VBox/HBox"]
+margin_right = 1452.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+
+[node name="Apply" type="Button" parent="Background/Margin/VBox/HBox"]
+margin_left = 1456.0
+margin_right = 1856.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 400, 100 )
+text = "Done"
+
+[connection signal="button_up" from="Background/Margin/VBox/Tabs/Other/Scroll/VBox/ResetButton" to="." method="_on_ResetButton_button_up"]
+[connection signal="button_up" from="Background/Margin/VBox/HBox/Apply" to="." method="_on_Apply_button_up"]

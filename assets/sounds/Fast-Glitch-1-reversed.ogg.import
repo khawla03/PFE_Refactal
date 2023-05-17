@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Fast-Glitch-1-reversed.ogg-8cbec233958e557495b3ce68ef92ad36.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/Fast-Glitch-1-reversed.ogg"
+dest_files=[ "res://.import/Fast-Glitch-1-reversed.ogg-8cbec233958e557495b3ce68ef92ad36.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

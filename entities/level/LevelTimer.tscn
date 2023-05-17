@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/fonts/digital_medium.tres" type="DynamicFont" id=1]
+[ext_resource path="res://entities/level/LevelTimer.gd" type="Script" id=2]
+
+[node name="LevelTimer" type="CanvasLayer"]
+layer = 0
+script = ExtResource( 2 )
+
+[node name="Root" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_top = 32
+
+[node name="HBox" type="HBoxContainer" parent="Root"]
+margin_top = 32.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="MinutesLabel" type="Label" parent="Root/HBox"]
+margin_right = 952.0
+margin_bottom = 1048.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "00"
+align = 2
+
+[node name="Separation" type="Label" parent="Root/HBox"]
+margin_left = 956.0
+margin_right = 964.0
+margin_bottom = 1048.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = ":"
+align = 1
+
+[node name="SecondsLabel" type="Label" parent="Root/HBox"]
+margin_left = 968.0
+margin_right = 1920.0
+margin_bottom = 1048.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "00"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

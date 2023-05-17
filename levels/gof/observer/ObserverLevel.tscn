@@ -1,0 +1,196 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://levels/gof/observer/ObserverLevel.gd" type="Script" id=1]
+[ext_resource path="res://entities/map/Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/doors/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/doors/DoorSingle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/computer/Computer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/gof/observer/lightmap/lightmap.lmbake" type="BakedLightmapData" id=6]
+[ext_resource path="res://entities/screen/WideScreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/gof/observer/info.tres" type="Resource" id=8]
+[ext_resource path="res://entities/level/PlayerSpawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/Item.gd" type="Script" id=10]
+[ext_resource path="res://levels/gof/observer/slides/Slide1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://entities/slider/Slider.tscn" type="PackedScene" id=13]
+[ext_resource path="res://levels/gof/observer/slides/Slide2.tscn" type="PackedScene" id=14]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Door
+
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends \"user://temp/Subject.gd\"
+
+
+# Called when the screen shows a new value
+func onValueChanged(new_value):
+	notify()
+"
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Code
+
+
+var screen = getObject(\"Screen\")
+var door = getObject(\"Door\")
+
+
+# Called when the observer gets notified
+func update():
+	
+	pass
+"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Code
+
+
+var subject = getObject(\"Screen\")
+var observer = getObject(\"ScreenObserver\")
+
+
+func _init():
+	subject.subscribe(observer)
+"
+
+[node name="ObserverLevel" type="Spatial"]
+script = ExtResource( 1 )
+level_info = ExtResource( 8 )
+slider = NodePath("Slider")
+map = NodePath("Map")
+spawner = NodePath("PlayerSpawner")
+
+[node name="Slider" parent="." instance=ExtResource( 13 )]
+slide_scenes = [ ExtResource( 12 ), ExtResource( 14 ) ]
+
+[node name="Map" parent="." instance=ExtResource( 2 )]
+data = {
+"cells": PoolIntArray( 2, 0, -2146041847, 65534, 0, -2146435065, 1, 1, -2146828286, 65535, 1, -2146435070, 262145, 1, -2146959335, 327679, 1, -2146959335, 0, 2, -2146828251, 2, 2, -2146041823, 65534, 2, -2146041823, 0, 3, -2146828246, 65521, 65505, -2146828255, 65523, 65505, -2147483611, 65525, 65505, -2146828255, 65522, 65506, -2147483646, 65524, 65506, -2146041854, 327666, 65506, -2146959335, 327668, 65506, -2146959335, 65521, 65507, -2146435065, 65525, 65507, -2146041849, 65522, 65508, -2147483645, 327666, 65508, -2146959335, 327668, 65508, -2146959335, 65521, 65509, -2146435040, 65525, 65509, -2146041824, 65522, 65510, -2147483645, 327666, 65510, -2146959335, 327668, 65510, -2146959335, 65521, 65511, -2146435063, 65525, 65511, -2146041847, 65522, 65512, -2147483645, 327666, 65512, -2146959335, 327668, 65512, -2146959335, 65521, 65513, -2146435040, 65525, 65513, -2146041824, 65522, 65514, -2147483645, 327666, 65514, -2146959335, 327668, 65514, -2146959335, 65521, 65515, -2146435065, 65525, 65515, -2146041849, 65522, 65516, -2146435070, 65524, 65516, -2146828286, 327666, 65516, -2146959335, 327668, 65516, -2146959335, 65521, 65517, -2146041823, 65523, 65517, -2146828253, 65525, 65517, -2146041823, 65517, 65518, -2147483617, 65519, 65518, -2147483641, 65521, 65518, -2147483615, 65523, 65518, -2147483614, 65525, 65518, -2147483615, 65527, 65518, -2147483641, 65529, 65518, -2147483617, 65518, 65519, -2147483646, 65520, 65519, -2146041851, 65522, 65519, -2146041851, 65524, 65519, -2146041851, 65526, 65519, -2146041851, 65528, 65519, -2146041854, 327662, 65519, -2146959335, 327664, 65519, -2146959335, 327666, 65519, -2146959335, 327668, 65519, -2146959335, 327670, 65519, -2146959335, 327672, 65519, -2146959335, 65517, 65520, -2146435061, 65529, 65520, -2146041849, 65518, 65521, -2147483643, 65520, 65521, -2146435072, 65522, 65521, -2146435072, 65524, 65521, -2146041856, 65526, 65521, -2146041856, 65528, 65521, -2146828283, 327662, 65521, -2146959335, 327664, 65521, -2146959335, 327666, 65521, -2146959335, 327668, 65521, -2146959335, 327670, 65521, -2146959335, 327672, 65521, -2146959335, 65517, 65522, -2146435040, 65529, 65522, -2146041824, 65518, 65523, -2147483643, 65520, 65523, -2146435072, 65522, 65523, -2146435068, 65524, 65523, -2146435068, 65526, 65523, -2146041856, 65528, 65523, -2146828283, 327662, 65523, -2146959335, 327664, 65523, -2146959335, 327666, 65523, -2146959337, 327668, 65523, -2146959336, 327670, 65523, -2146959335, 327672, 65523, -2146959335, 65517, 65524, -2146435061, 65529, 65524, -2146041849, 65518, 65525, -2147483643, 65520, 65525, -2146435072, 65522, 65525, -2146435068, 65524, 65525, -2146435068, 65526, 65525, -2146041856, 65528, 65525, -2146828283, 327662, 65525, -2146959335, 327664, 65525, -2146959335, 327666, 65525, -2146959336, 327668, 65525, -2146959337, 327670, 65525, -2146959335, 327672, 65525, -2146959335, 0, 65526, -2147483641, 2, 65526, -2146041826, 65517, 65526, -2146435040, 65529, 65526, -2147483615, 65530, 65526, -2146041823, 65532, 65526, -2147483641, 65534, 65526, -2147483616, 1, 65527, -2146041854, 65518, 65527, -2147483643, 65520, 65527, -2146435072, 65522, 65527, -2146435072, 65524, 65527, -2146041856, 65526, 65527, -2146041856, 65528, 65527, -2146828283, 65531, 65527, -2146041853, 65533, 65527, -2146041853, 65535, 65527, -2146041851, 262145, 65527, -2146959335, 327662, 65527, -2146959335, 327664, 65527, -2146959335, 327666, 65527, -2146959335, 327668, 65527, -2146959335, 327670, 65527, -2146959335, 327672, 65527, -2146959335, 327675, 65527, -2146959335, 327677, 65527, -2146959335, 327679, 65527, -2146959335, 2, 65528, -2146041847, 65517, 65528, -2146435061, 65529, 65528, -2146041821, 65530, 65528, -2146435038, 1, 65529, -2146828283, 65518, 65529, -2146435070, 65520, 65529, -2146435067, 65522, 65529, -2146435067, 65524, 65529, -2146435067, 65526, 65529, -2146435067, 65528, 65529, -2146828286, 65535, 65529, -2146435066, 262145, 65529, -2146959335, 327662, 65529, -2146959335, 327664, 65529, -2146959335, 327666, 65529, -2146959335, 327668, 65529, -2146959335, 327670, 65529, -2146959335, 327672, 65529, -2146959335, 327675, 65529, -2146959335, 327677, 65529, -2146959335, 327679, 65529, -2146959335, 2, 65530, -2146041824, 65517, 65530, -2147483617, 65519, 65530, -2146828281, 65521, 65530, -2146828256, 65523, 65530, -2146828281, 65525, 65530, -2146828256, 65527, 65530, -2146828281, 65529, 65530, -2147483615, 65530, 65530, -2146041823, 65532, 65530, -2146828281, 65534, 65530, -2146041826, 1, 65531, -2146828285, 262145, 65531, -2146959335, 327679, 65531, -2146959335, 2, 65532, -2146041847, 65534, 65532, -2146435065, 1, 65533, -2146828285, 262145, 65533, -2146959335, 327679, 65533, -2146959335, 2, 65534, -2146041824, 65534, 65534, -2146435040, 1, 65535, -2146828285, 262145, 65535, -2146959335, 327679, 65535, -2146959335 )
+}
+
+[node name="PlayerSpawner" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, 1.5 )
+
+[node name="Lights" type="Spatial" parent="."]
+
+[node name="OmniLight" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.5, -7.5 )
+omni_range = 16.0
+
+[node name="OmniLight2" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 2.5, -11.5 )
+omni_range = 16.0
+
+[node name="OmniLight3" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 2.5, -24.5 )
+omni_range = 10.0
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2.5, -13.5 )
+extents = Vector3( 12.5, 4.5, 19.5 )
+quality = 0
+use_hdr = false
+use_color = false
+capture_quality = 0
+light_data = ExtResource( 6 )
+
+[node name="Items" type="Spatial" parent="."]
+
+[node name="Door" parent="Items" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5, 0.5, -17.5 )
+code = SubResource( 1 )
+display_name = "Door"
+description = "The password appears in the screen"
+is_programmable = true
+locked = true
+
+[node name="DoorSingle" parent="Items" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.5, 0.5, -30.5 )
+display_name = "Exit Door"
+description = "Open to exit room"
+is_interactable = true
+interaction_message = "to open"
+
+[node name="Computer" parent="Items" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5449, 0.440371, -11.4147 )
+display_name = "Computer"
+description = "Use it to program objects"
+is_interactable = true
+interaction_message = "to use"
+
+[node name="Subject" type="StaticBody" parent="Items"]
+script = ExtResource( 10 )
+display_name = "Subject"
+description = "The observable class"
+is_programmable = true
+built_in = false
+starting_script = "class_name Subject
+extends Screen
+
+
+var observers: Array
+
+
+func _init():
+	observers = []
+
+
+# This function subscribes an observer to the subject, 
+# to be updated when the notify function is called
+# Hint: to add an elemet to an array, use \"my_array.append(new_element)\"
+func subscribe(observer):
+	
+	pass
+
+
+# This function unsubscribes the observer from the subject
+func unsubscribe(observer):
+	observers.remove(observer)
+	pass
+
+
+# This function is called when the subject's state is changed,
+# it calls the update method on all the subscribed observers
+# Hint: to loop through an array, use \"for element in array:\"
+func notify():
+	
+	pass
+"
+
+[node name="Screen" parent="Items" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4897, 3.72916, -17.6097 )
+code = SubResource( 2 )
+display_name = "Screen"
+description = "Displays the password"
+is_programmable = true
+locked = true
+make_sound = false
+connect_on_value_changed = true
+
+[node name="ScreenObserver" type="StaticBody" parent="Items"]
+script = ExtResource( 10 )
+code = SubResource( 4 )
+display_name = "ScreenObserver"
+description = "Observes the screen for changes"
+is_programmable = true
+
+[node name="Main" type="StaticBody" parent="Items"]
+script = ExtResource( 10 )
+code = SubResource( 3 )
+display_name = "Main"
+description = "Main room code"
+is_programmable = true
+
+[node name="PwChanger" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="AppearTime" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="opened" from="Items/Door" to="." method="_on_Door_opened"]
+[connection signal="interact" from="Items/DoorSingle" to="." method="_on_DoorSingle_interact"]
+[connection signal="timeout" from="PwChanger" to="." method="_on_PwChanger_timeout"]
+[connection signal="timeout" from="AppearTime" to="." method="_on_AppearTime_timeout"]

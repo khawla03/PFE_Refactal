@@ -1,0 +1,202 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://levels/grasp/Expert/ExpertLevel.gd" type="Script" id=1]
+[ext_resource path="res://entities/map/Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/level/PlayerSpawner.gd" type="Script" id=3]
+[ext_resource path="res://entities/slider/Slider.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/grasp/Expert/slides/Slide.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/doors/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/grasp/Expert/info.tres" type="Resource" id=7]
+[ext_resource path="res://entities/screen/WideScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/computer/Computer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/Item.tscn" type="PackedScene" id=10]
+[ext_resource path="res://entities/doors/Lights.tscn" type="PackedScene" id=11]
+[ext_resource path="res://entities/screen/ScreenSquare.tscn" type="PackedScene" id=12]
+[ext_resource path="res://levels/grasp/Expert/lightmap/lightmap1.lmbake" type="BakedLightmapData" id=13]
+[ext_resource path="res://entities/doors/DoorSingle.tscn" type="PackedScene" id=14]
+[ext_resource path="res://entities/Hint/Hint.tscn" type="PackedScene" id=15]
+[ext_resource path="res://levels/grasp/Expert/slides/hint.tscn" type="PackedScene" id=16]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Door
+"
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Screen
+
+# Called when the screen value changed
+func onValueChanged(expression):
+	var calculator = getObject(\"Calculator\")
+	var passwordSetter = getObject(\"PasswordSetter\") 
+	if calculator.has_method(\"executeExpression\"):
+		var result = calculator.executeExpression()
+		if passwordSetter.has_method(\"enterPassword\"):
+			passwordSetter.enterPassword(result)
+"
+
+[sub_resource type="GDScript" id=8]
+script/source = "extends Screen
+"
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Code
+"
+
+[sub_resource type="GDScript" id=3]
+resource_local_to_scene = true
+script/source = "extends Code
+
+
+#All functions must be coppied in their class expert
+
+var screen=getObject(\"Screen\")
+var resultScreen=getObject(\"ResultScreen\")
+# Take the expression from the screen and return string result
+func executeExpression() -> String:
+	
+	var expression=screen.getValue()
+	
+	var e = Expression.new()
+	e.parse(expression)
+	return str(e.execute())
+
+
+# Enters the password' digits on the result screens
+func enterPassword(result:String):
+	resultScreen.setValue(result)
+	
+	
+
+
+"
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Code
+var screen=getObject(\"Screen\")
+
+"
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Code
+#Puts the password on the result screen
+var resultScreen=getObject(\"ResultScreen\")
+"
+
+[node name="ExpertLevel" type="Spatial"]
+script = ExtResource( 1 )
+level_info = ExtResource( 7 )
+slider = NodePath("Slider")
+map = NodePath("Map")
+spawner = NodePath("PlayerSpawner")
+hints = NodePath("Hints")
+
+[node name="Map" parent="." instance=ExtResource( 2 )]
+data = {
+"cells": PoolIntArray( 65546, 0, -2146041841, 131062, 0, -2146435057, 65537, 1, -2146041856, 65539, 1, -2146435072, 65541, 1, -2146435072, 65543, 1, -2146435072, 65545, 1, -2146435072, 131063, 1, -2146435072, 131065, 1, -2146435072, 131067, 1, -2146435072, 131069, 1, -2146435072, 131071, 1, -2146041856, 327681, 1, -2146041838, 327683, 1, -2146041838, 327685, 1, -2146041838, 327687, 1, -2146041838, 327689, 1, -2146041838, 393207, 1, -2147483630, 393209, 1, -2146041838, 393211, 1, -2146041838, 393213, 1, -2146041838, 393215, 1, -2146041838, 2, 2, -2146435041, 65534, 2, -2146435041, 65536, 2, -2146828253, 65540, 2, -2146828271, 65542, 2, -2146828256, 65544, 2, -2146828271, 65546, 2, -2146435039, 131062, 2, -2146435039, 131064, 2, -2146828271, 131066, 2, -2146828256, 131068, 2, -2146828271, 65537, 3, -2146041856, 131071, 3, -2146041856, 262145, 3, -2146435054, 327679, 3, -2146435054, 2, 4, -2146041849, 65534, 4, -2146435065, 65536, 4, -2147483632, 262145, 4, -2146172910, 327679, 4, -2146172910, 2, 5, -2146041842, 65534, 5, -2146435058, 262145, 6, -2146172910, 327679, 6, -2146172910, 1, 8, -2146828285, 262145, 8, -2146172910, 327679, 8, -2146172910, 2, 9, -2146041847, 65534, 9, -2146435063, 65535, 10, -2147483645, 262145, 10, -2146172910, 327679, 10, -2146172910, 2, 11, -2146041824, 65534, 11, -2146435040, 65535, 12, -2147483645, 262145, 12, -2146172910, 327679, 12, -2146172910, 2, 13, -2146041847, 65534, 13, -2146435063, 65535, 14, -2147483645, 262145, 14, -2146172910, 327679, 14, -2146172910, 2, 15, -2146041824, 65534, 15, -2146435040, 65535, 16, -2147483645, 262145, 16, -2146172910, 327679, 16, -2146172910, 2, 17, -2146041847, 65534, 17, -2146435063, 65535, 18, -2147483645, 262145, 18, -2146172910, 327679, 18, -2146172910, 0, 19, -2146828251, 2, 19, -2146828255, 65534, 19, -2146828255, 0, 20, -2146828246, 65536, 65511, -2147483611, 65538, 65511, -2146041823, 131070, 65511, -2146041823, 327681, 65511, -2146172903, 393215, 65511, -2146172903, 65537, 65512, -2146041854, 65538, 65512, -2146041842, 131070, 65512, -2146435058, 131071, 65512, -2147483646, 327681, 65513, -2146172903, 393215, 65513, -2146172903, 131071, 65514, -2147483645, 327681, 65515, -2146172903, 393215, 65515, -2146172903, 65538, 65516, -2146041842, 131070, 65516, -2146435058, 131071, 65516, -2147483645, 327681, 65517, -2146172903, 393215, 65517, -2146172903, 131071, 65518, -2147483645, 327681, 65519, -2146172903, 393215, 65519, -2146172903, 65538, 65520, -2146041842, 131070, 65520, -2146435058, 131071, 65520, -2147483645, 327681, 65521, -2146172903, 393215, 65521, -2146172903, 65536, 65522, -2147483614, 65537, 65522, -2146828286, 65540, 65522, -2147483631, 65544, 65522, -2147483631, 65546, 65522, -2146435039, 131062, 65522, -2146435039, 131064, 65522, -2147483631, 131068, 65522, -2147483631, 131071, 65522, -2146435070, 65537, 65523, -2146041856, 65539, 65523, -2146041856, 65541, 65523, -2146041856, 65543, 65523, -2146041856, 65545, 65523, -2146041856, 131063, 65523, -2146041856, 131065, 65523, -2146041856, 131067, 65523, -2146041856, 131069, 65523, -2146041856, 131071, 65523, -2146041856, 327681, 65523, -2146041838, 327683, 65523, -2146041838, 327685, 65523, -2146041838, 327687, 65523, -2146041838, 327689, 65523, -2146041838, 393207, 65523, -2146041838, 393209, 65523, -2146041838, 393211, 65523, -2146041838, 393213, 65523, -2146041838, 393215, 65523, -2146041838, 65546, 65524, -2146041841, 131062, 65524, -2146435057, 65537, 65525, -2146041851, 65539, 65525, -2146041851, 65541, 65525, -2146041851, 65543, 65525, -2146041854, 65545, 65525, -2146041856, 131063, 65525, -2146041856, 131065, 65525, -2147483646, 131067, 65525, -2146041851, 131069, 65525, -2146041851, 131071, 65525, -2146041851, 327681, 65525, -2146303977, 327683, 65525, -2146303977, 327685, 65525, -2146303977, 327687, 65525, -2146172907, 327689, 65525, -2146041838, 393207, 65525, -2146041838, 393209, 65525, -2147352557, 393211, 65525, -2146303977, 393213, 65525, -2146303977, 393215, 65525, -2146303977, 65537, 65527, -2146828288, 65539, 65527, -2146828288, 65541, 65527, -2146828288, 65543, 65527, -2146828283, 65545, 65527, -2146041856, 131063, 65527, -2146041856, 131065, 65527, -2147483643, 131067, 65527, -2146828288, 131069, 65527, -2146828288, 131071, 65527, -2146828288, 327681, 65527, -2147483630, 327683, 65527, -2147483630, 327685, 65527, -2147483630, 327687, 65527, -2147352553, 327689, 65527, -2146041838, 393207, 65527, -2146041838, 393209, 65527, -2146959337, 393211, 65527, -2147483630, 393213, 65527, -2147483630, 393215, 65527, -2147483630, 65546, 65528, -2146041841, 131062, 65528, -2146435057, 65537, 65529, -2146435068, 65539, 65529, -2146828288, 65541, 65529, -2146828288, 65543, 65529, -2146828283, 65545, 65529, -2146041856, 131063, 65529, -2146041856, 131065, 65529, -2147483643, 131067, 65529, -2146828288, 131069, 65529, -2146828288, 131071, 65529, -2146435068, 327681, 65529, -2147483630, 327683, 65529, -2147483630, 327685, 65529, -2147483630, 327687, 65529, -2147352553, 327689, 65529, -2146041838, 393207, 65529, -2146041838, 393209, 65529, -2146959337, 393211, 65529, -2147483630, 393213, 65529, -2147483630, 393215, 65529, -2147483630, 65537, 65531, -2146435068, 65539, 65531, -2146828288, 65541, 65531, -2146828288, 65543, 65531, -2146828283, 65545, 65531, -2146041856, 131063, 65531, -2146041856, 131065, 65531, -2147483643, 131067, 65531, -2146828288, 131069, 65531, -2146828288, 131071, 65531, -2146435068, 327681, 65531, -2147483630, 327683, 65531, -2147483630, 327685, 65531, -2147483630, 327687, 65531, -2147352553, 327689, 65531, -2146041838, 393207, 65531, -2147483630, 393209, 65531, -2146959337, 393211, 65531, -2147483630, 393213, 65531, -2147483630, 393215, 65531, -2147483630, 65546, 65532, -2146041841, 131062, 65532, -2146435057, 65537, 65533, -2146828288, 65539, 65533, -2146828288, 65541, 65533, -2146828288, 65543, 65533, -2146828283, 65545, 65533, -2146041856, 131063, 65533, -2146041856, 131065, 65533, -2147483643, 131067, 65533, -2146828288, 131069, 65533, -2146828288, 131071, 65533, -2146828288, 327681, 65533, -2147483630, 327683, 65533, -2147483630, 327685, 65533, -2147483630, 327687, 65533, -2147352553, 327689, 65533, -2146041838, 393207, 65533, -2147483630, 393209, 65533, -2147352553, 393211, 65533, -2147483630, 393213, 65533, -2147483630, 393215, 65533, -2147483630, 65537, 65535, -2146435067, 65539, 65535, -2146435067, 65541, 65535, -2146435067, 65543, 65535, -2146828286, 65545, 65535, -2146435072, 131063, 65535, -2146435072, 131065, 65535, -2146435070, 131067, 65535, -2146435067, 131069, 65535, -2146435067, 131071, 65535, -2146435067, 327681, 65535, -2146303977, 327683, 65535, -2146303977, 327685, 65535, -2146303977, 327687, 65535, -2147352555, 327689, 65535, -2146041838, 393207, 65535, -2147483630, 393209, 65535, -2146303979, 393211, 65535, -2146303977, 393213, 65535, -2146303977, 393215, 65535, -2146172905 )
+}
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208707, 3.3931, -2.76722 )
+extents = Vector3( 21.7401, 9.89876, 28.2325 )
+quality = 0
+use_hdr = false
+use_color = false
+light_data = ExtResource( 13 )
+
+[node name="lights" type="Spatial" parent="."]
+
+[node name="OmniLight" type="OmniLight" parent="lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.17359, 15.1047 )
+omni_range = 11.4892
+
+[node name="OmniLight2" type="OmniLight" parent="lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.25595, -1.58864 )
+omni_range = 3.36526
+
+[node name="OmniLight3" type="OmniLight" parent="lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.09949, -5.96513 )
+omni_range = 16.967
+
+[node name="OmniLight4" type="OmniLight" parent="lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.61961, -19.6911 )
+
+[node name="Slider" parent="." instance=ExtResource( 4 )]
+slide_scenes = [ ExtResource( 5 ) ]
+
+[node name="Hints" parent="." instance=ExtResource( 15 )]
+slide_scenes = [ ExtResource( 5 ), ExtResource( 16 ) ]
+
+[node name="PlayerSpawner" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.508081, 1.25478, 18.2785 )
+script = ExtResource( 3 )
+
+[node name="ExpressionChanger" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="PasswordChecker" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Items" type="Spatial" parent="."]
+
+[node name="Computer" parent="Items" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.433478, 1.4501, -5.37521 )
+
+[node name="Door" parent="Items" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.491877, 1.49469, -13.4319 )
+code = SubResource( 2 )
+display_name = "Door"
+lights_path = NodePath("../Lights")
+
+[node name="Screen" parent="Items" instance=ExtResource( 8 )]
+transform = Transform( 1.32343, 0, 0, 0, 0.728549, -0.703101, 0, 0.883659, 0.776073, 0.481773, 5.066, -13.5062 )
+code = SubResource( 1 )
+display_name = "Screen"
+is_programmable = true
+locked = true
+connect_on_value_changed = true
+
+[node name="ResultScreen" parent="Items" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55948, 3.51706, -13.8007 )
+code = SubResource( 8 )
+display_name = "ResultScreen"
+is_programmable = true
+locked = true
+can_set_value = true
+
+[node name="Lights" parent="Items" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.4458, 4.73228, -13.7008 )
+code = SubResource( 4 )
+display_name = "Lights"
+lights = 1
+
+[node name="Main" parent="Items" instance=ExtResource( 10 )]
+code = SubResource( 3 )
+display_name = "Main"
+is_programmable = true
+
+[node name="Calculator" parent="Items" instance=ExtResource( 10 )]
+code = SubResource( 5 )
+display_name = "Calculator"
+is_programmable = true
+
+[node name="PasswordSetter" parent="Items" instance=ExtResource( 10 )]
+transform = Transform( 0.999987, -0.00185893, -0.0047147, 0.00190053, 0.999959, 0.00883891, 0.00469809, -0.00884775, 0.99995, 0, 0, 0 )
+code = SubResource( 7 )
+display_name = "PasswordSetter"
+is_programmable = true
+
+[node name="DoorSingle" parent="Items" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.475243, 1.50395, -24.9437 )
+is_interactable = true
+
+[node name="HintsTimer" type="Timer" parent="."]
+wait_time = 180.0
+autostart = true
+
+[connection signal="timeout" from="ExpressionChanger" to="." method="_on_ExpressionChanger_timeout"]
+[connection signal="timeout" from="PasswordChecker" to="." method="_on_PasswordChecker_timeout"]
+[connection signal="opened" from="Items/Door" to="." method="_on_Door_opened"]
+[connection signal="interact" from="Items/DoorSingle" to="." method="_on_DoorSingle_interact"]
+[connection signal="timeout" from="HintsTimer" to="." method="_on_HintsTimer_timeout"]

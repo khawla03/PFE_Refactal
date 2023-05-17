@@ -1,0 +1,112 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": true,
+			"wait_seconds": 2
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://levels/tutorial/00/story/tuto1_4.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "This is the programming interface. Here you can program the local objects in the room."
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://levels/tutorial/00/story/tuto1_5.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You can change and extend the exsisting code, or create new objects if needed."
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://levels/tutorial/00/story/tuto1_6.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Click on the button object to show its code, and call the open() method on the door instance in the button click event function."
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://levels/tutorial/00/story/tuto1_7.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Don't forget to click \"Apply\" to save the changes."
+		},
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"animation_wait": false,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1659255897.json",
+		"name": "Tuto1_2"
+	}
+}

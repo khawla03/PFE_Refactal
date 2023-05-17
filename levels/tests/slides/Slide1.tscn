@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://entities/ui/InfoLabel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/title2.tres" type="DynamicFont" id=2]
+[ext_resource path="res://levels/solid/srp/slides/large-class.png" type="Texture" id=3]
+[ext_resource path="res://data/techniques/extract_class.tres" type="Resource" id=4]
+
+[node name="Slide1" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBox" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Margin" type="MarginContainer" parent="HBox"]
+margin_right = 1266.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+custom_constants/margin_right = 50
+custom_constants/margin_top = 100
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 100
+
+[node name="VBox" type="VBoxContainer" parent="HBox/Margin"]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 1216.0
+margin_bottom = 980.0
+size_flags_horizontal = 3
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="HBox/Margin/VBox"]
+margin_top = 117.0
+margin_right = 1116.0
+margin_bottom = 200.0
+text = "Single Responsibility Principle (SRP) is one of the five SOLID principles."
+autowrap = true
+
+[node name="VBox" type="VBoxContainer" parent="HBox/Margin/VBox"]
+margin_top = 250.0
+margin_right = 1116.0
+margin_bottom = 538.0
+custom_constants/separation = 30
+
+[node name="Label2" type="Label" parent="HBox/Margin/VBox/VBox"]
+margin_right = 1116.0
+margin_bottom = 62.0
+custom_fonts/font = ExtResource( 2 )
+text = "What is it?"
+autowrap = true
+
+[node name="Label3" type="Label" parent="HBox/Margin/VBox/VBox"]
+margin_top = 92.0
+margin_right = 1116.0
+margin_bottom = 175.0
+text = "This principle states that : “A class should only have only one reason to change”"
+autowrap = true
+
+[node name="Label4" type="Label" parent="HBox/Margin/VBox/VBox"]
+margin_top = 205.0
+margin_right = 1116.0
+margin_bottom = 288.0
+text = "If a class is responsible for many tasks, this class doesn’t respect the SRP."
+autowrap = true
+
+[node name="VBox2" type="VBoxContainer" parent="HBox/Margin/VBox"]
+margin_top = 588.0
+margin_right = 1116.0
+margin_bottom = 762.0
+custom_constants/separation = 30
+
+[node name="Label2" type="Label" parent="HBox/Margin/VBox/VBox2"]
+margin_right = 1116.0
+margin_bottom = 62.0
+custom_fonts/font = ExtResource( 2 )
+text = "How to apply it?"
+autowrap = true
+
+[node name="InfoLabel" parent="HBox/Margin/VBox/VBox2" instance=ExtResource( 1 )]
+margin_top = 92.0
+margin_right = 1116.0
+margin_bottom = 174.0
+bbcode_enabled = true
+bbcode_text = "Simply move some of the responsibilities to dedicated classes, or [color=#fac705][url=extract_class]Extract Class[/url][/color]."
+text = "Simply move some of the responsibilities to dedicated classes, or Extract Class."
+fit_content_height = true
+infos = [ ExtResource( 4 ) ]
+
+[node name="Margin2" type="MarginContainer" parent="HBox"]
+margin_left = 1270.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 100
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="HBox/Margin2"]
+margin_left = 50.0
+margin_top = 390.0
+margin_right = 550.0
+margin_bottom = 690.0
+size_flags_vertical = 4
+texture = ExtResource( 3 )

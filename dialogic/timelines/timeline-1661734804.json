@@ -1,0 +1,62 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://levels/demo/speech/speech3.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Congratulations! You have successfully completed your mission."
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://levels/demo/speech/speech4.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It was a pleasure working with you. I hope to see you again in future missions. Time to get back home!"
+		},
+		{
+			"emit_signal": "end",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1661734804.json",
+		"name": "final1"
+	}
+}

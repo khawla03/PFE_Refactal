@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/intro_guide_2.ogg-68823609ba6c66ade4a4fb915ca6e109.oggstr"
+
+[deps]
+
+source_file="res://story/intro/speech/intro_guide_2.ogg"
+dest_files=[ "res://.import/intro_guide_2.ogg-68823609ba6c66ade4a4fb915ca6e109.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

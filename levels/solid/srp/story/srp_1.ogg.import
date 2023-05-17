@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/srp_1.ogg-fbab38db2ee0351883a3817660fc5319.oggstr"
+
+[deps]
+
+source_file="res://levels/solid/srp/story/srp_1.ogg"
+dest_files=[ "res://.import/srp_1.ogg-fbab38db2ee0351883a3817660fc5319.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

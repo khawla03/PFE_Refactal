@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://entities/level/LevelInfo.gd" type="Script" id=1]
+[ext_resource path="res://levels/algo/01/splash.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+id = "algo1"
+title = "Level 1"
+shortDescription = ""
+description = ""
+splash = ExtResource( 2 )
+path = "res://levels/algo/01/Level1-1.tscn"

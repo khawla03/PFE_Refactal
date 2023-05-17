@@ -1,0 +1,325 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://addons/silent_wolf/Scores/Leaderboard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/ui/LeaderBoard.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/title1.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/fonts/digital_medium.tres" type="DynamicFont" id=4]
+[ext_resource path="res://assets/themes/main_menu_theme.tres" type="Theme" id=5]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Margin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Margin:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ NodePath("Background") ],
+"method": "_hide_rect"
+}, {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Margin/HBox/Leaderboard:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Margin:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Margin:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "show"
+length = 0.6
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ NodePath("Background") ],
+"method": "_show_rect"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Margin:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Margin:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 0.6 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Background:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="LeaderBoard" type="CanvasLayer"]
+layer = 5
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/hide = SubResource( 3 )
+anims/show = SubResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 1920, 0 )
+mouse_filter = 2
+color = Color( 0.0627451, 0.0705882, 0.0980392, 1 )
+
+[node name="Margin" type="MarginContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+
+[node name="HBox" type="HBoxContainer" parent="Margin"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1870.0
+margin_bottom = 1030.0
+custom_constants/separation = 100
+
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox"]
+margin_right = 860.0
+margin_bottom = 980.0
+size_flags_horizontal = 3
+custom_constants/separation = 50
+
+[node name="Label" type="Label" parent="Margin/HBox/VBox"]
+margin_right = 860.0
+margin_bottom = 68.0
+custom_fonts/font = ExtResource( 3 )
+text = "Player stats"
+align = 1
+
+[node name="Control" type="Control" parent="Margin/HBox/VBox"]
+margin_top = 118.0
+margin_right = 860.0
+margin_bottom = 224.0
+size_flags_vertical = 3
+
+[node name="HBox" type="HBoxContainer" parent="Margin/HBox/VBox"]
+margin_top = 274.0
+margin_right = 860.0
+margin_bottom = 314.0
+
+[node name="Label" type="Label" parent="Margin/HBox/VBox/HBox"]
+margin_right = 760.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Submitted score"
+
+[node name="SubmittedScore" type="Label" parent="Margin/HBox/VBox/HBox"]
+margin_left = 764.0
+margin_right = 860.0
+margin_bottom = 40.0
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 4 )
+text = "9999"
+align = 2
+
+[node name="HBox2" type="HBoxContainer" parent="Margin/HBox/VBox"]
+margin_top = 364.0
+margin_right = 860.0
+margin_bottom = 404.0
+
+[node name="Label" type="Label" parent="Margin/HBox/VBox/HBox2"]
+margin_right = 803.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Global rank"
+
+[node name="Label1" type="Label" parent="Margin/HBox/VBox/HBox2"]
+margin_left = 807.0
+margin_right = 832.0
+margin_bottom = 40.0
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 4 )
+text = "#"
+
+[node name="Rank" type="Label" parent="Margin/HBox/VBox/HBox2"]
+margin_left = 836.0
+margin_right = 860.0
+margin_bottom = 40.0
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 4 )
+text = "/"
+align = 2
+
+[node name="HBox3" type="HBoxContainer" parent="Margin/HBox/VBox"]
+margin_top = 454.0
+margin_right = 860.0
+margin_bottom = 494.0
+
+[node name="Label" type="Label" parent="Margin/HBox/VBox/HBox3"]
+margin_right = 760.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+text = "Local highest score"
+
+[node name="LocalScore" type="Label" parent="Margin/HBox/VBox/HBox3"]
+margin_left = 764.0
+margin_right = 860.0
+margin_bottom = 40.0
+size_flags_vertical = 5
+custom_fonts/font = ExtResource( 4 )
+text = "9999"
+align = 2
+
+[node name="Control2" type="Control" parent="Margin/HBox/VBox"]
+margin_top = 544.0
+margin_right = 860.0
+margin_bottom = 650.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/VBox"]
+margin_top = 700.0
+margin_right = 860.0
+margin_bottom = 980.0
+custom_constants/separation = 20
+
+[node name="Info" type="Label" parent="Margin/HBox/VBox/VBoxContainer"]
+margin_right = 860.0
+margin_bottom = 40.0
+text = "(Improve your score to submit again)"
+align = 1
+
+[node name="NameEdit" type="LineEdit" parent="Margin/HBox/VBox/VBoxContainer"]
+margin_top = 60.0
+margin_right = 860.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 0, 100 )
+align = 1
+max_length = 15
+placeholder_text = "Enter your name"
+
+[node name="Submit" type="Button" parent="Margin/HBox/VBox/VBoxContainer"]
+margin_top = 180.0
+margin_right = 860.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 0, 100 )
+text = "Submit new score"
+
+[node name="Leaderboard" parent="Margin/HBox" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 960.0
+margin_right = 1820.0
+margin_bottom = 980.0
+size_flags_horizontal = 3
+
+[connection signal="text_changed" from="Margin/HBox/VBox/VBoxContainer/NameEdit" to="." method="_on_NameEdit_text_changed"]
+[connection signal="button_up" from="Margin/HBox/VBox/VBoxContainer/Submit" to="." method="_on_Submit_button_up"]
+[connection signal="close" from="Margin/HBox/Leaderboard" to="." method="_on_Leaderboard_close"]

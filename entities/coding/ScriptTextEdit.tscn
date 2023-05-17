@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/coding/ScriptTextEdit.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/sciprt.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/icons/text_edit_tab.svg" type="Texture" id=3]
+
+[node name="ScriptTextEdit" type="TextEdit"]
+margin_top = 66.0
+margin_right = 1560.0
+margin_bottom = 890.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/member_variable_color = Color( 0.737255, 0.878431, 1, 1 )
+custom_colors/function_color = Color( 0.341176, 0.701961, 1, 1 )
+custom_colors/symbol_color = Color( 0.670588, 0.784314, 1, 1 )
+custom_colors/caret_background_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0.411765, 0.611765, 0.909804, 0.34902 )
+custom_colors/caret_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_selected = Color( 0.101961, 0.113725, 0.156863, 1 )
+custom_colors/font_color = Color( 0.8, 0.807843, 0.827451, 1 )
+custom_colors/line_number_color = Color( 0.8, 0.807843, 0.827451, 1 )
+custom_colors/background_color = Color( 0.12549, 0.145098, 0.192157, 1 )
+custom_colors/number_color = Color( 0.631373, 1, 0.878431, 1 )
+custom_colors/current_line_color = Color( 1, 1, 1, 0.0705882 )
+custom_fonts/font = ExtResource( 2 )
+custom_icons/tab = ExtResource( 3 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+bookmark_gutter = true
+highlight_all_occurrences = true
+smooth_scrolling = true
+hiding_enabled = true
+minimap_draw = true
+minimap_width = 200
+script = ExtResource( 1 )

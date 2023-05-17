@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hydraulic_door_close.wav-6b9ab3eb8a646e42f77fc8936a4ad65a.sample"
+
+[deps]
+
+source_file="res://assets/sounds/hydraulic_door_close.wav"
+dest_files=[ "res://.import/hydraulic_door_close.wav-6b9ab3eb8a646e42f77fc8936a4ad65a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

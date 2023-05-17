@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://entities/level/LevelInfo.gd" type="Script" id=1]
+[ext_resource path="res://levels/smells/duplication/info.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+id = "Expert1"
+title = "Expert"
+shortDescription = "Expert pattern"
+description = "Learn and practice the Expert GRASP pattern."
+path = "res://levels/grasp/Expert/ExpertLevel.tscn"
+next_level = ExtResource( 2 )

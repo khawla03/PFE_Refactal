@@ -1,0 +1,25 @@
+[gd_scene format=2]
+
+[node name="Slide 1" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+margin_right = 1926.0
+margin_bottom = 1086.0
+
+[node name="Label" type="Label" parent="HSplitContainer"]
+margin_top = 523.0
+margin_right = 107.0
+margin_bottom = 563.0
+text = "TEST 2"
+align = 1
+valign = 1
+
+[node name="Label2" type="Label" parent="HSplitContainer"]
+margin_left = 119.0
+margin_top = 523.0
+margin_right = 1926.0
+margin_bottom = 563.0
+text = "Description"
+align = 1

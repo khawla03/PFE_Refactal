@@ -1,0 +1,242 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://main/ChapterPanel.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Montserrat-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://main/Chapter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/shaders/blur_shader.tres" type="Material" id=4]
+[ext_resource path="res://levels/tutorial/00/info.tres" type="Resource" id=5]
+[ext_resource path="res://levels/tutorial/01/info.tres" type="Resource" id=6]
+[ext_resource path="res://levels/grasp/Expert/info.tres" type="Resource" id=7]
+[ext_resource path="res://levels/tutorial/03/info.tres" type="Resource" id=8]
+[ext_resource path="res://levels/tutorial/Controls/info.tres" type="Resource" id=9]
+[ext_resource path="res://levels/algo/01/info.tres" type="Resource" id=10]
+[ext_resource path="res://levels/smells/duplication/info.tres" type="Resource" id=11]
+[ext_resource path="res://levels/gof/observer/info.tres" type="Resource" id=12]
+[ext_resource path="res://levels/solid/srp/info.tres" type="Resource" id=13]
+[ext_resource path="res://levels/grasp/controller/info.tres" type="Resource" id=14]
+[ext_resource path="res://levels/tests/info.tres" type="Resource" id=15]
+[ext_resource path="res://levels/gof/Behavior/State/Info.tres" type="Resource" id=16]
+[ext_resource path="res://levels/gof/Creation/Factory/Info.tres" type="Resource" id=17]
+[ext_resource path="res://levels/grasp/Low coupling/info.tres" type="Resource" id=18]
+[ext_resource path="res://levels/gof/structure/facade/info.tres" type="Resource" id=19]
+
+[sub_resource type="DynamicFont" id=16]
+size = 46
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InputBlocker:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InputBlocker:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "animate_position"
+} ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "show"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InputBlocker:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "animate_position"
+} ]
+}
+
+[node name="ChapterPanel" type="Panel"]
+modulate = Color( 1, 1, 1, 0 )
+material = ExtResource( 4 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 24
+custom_constants/margin_top = 24
+custom_constants/margin_left = 24
+custom_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 1896.0
+margin_bottom = 1056.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 1872.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 150 )
+custom_fonts/font = SubResource( 16 )
+text = "Chapters"
+align = 1
+valign = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 154.0
+margin_right = 1872.0
+margin_bottom = 1032.0
+size_flags_vertical = 3
+
+[node name="Chapters" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+margin_right = 1872.0
+margin_bottom = 878.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 32
+
+[node name="Tutorial" parent="MarginContainer/VBoxContainer/ScrollContainer/Chapters" instance=ExtResource( 3 )]
+margin_right = 1872.0
+title = "Tutorial"
+description = "Simple levels to learn how to play the game."
+levels = [ ExtResource( 9 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 15 ) ]
+
+[node name="Solid" parent="MarginContainer/VBoxContainer/ScrollContainer/Chapters" instance=ExtResource( 3 )]
+margin_top = 182.0
+margin_right = 1872.0
+margin_bottom = 332.0
+title = "SOLID Principles"
+description = "Learn the five SOLID  design principles."
+levels = [ ExtResource( 13 ) ]
+
+[node name="Grasp" parent="MarginContainer/VBoxContainer/ScrollContainer/Chapters" instance=ExtResource( 3 )]
+margin_top = 364.0
+margin_right = 1872.0
+margin_bottom = 514.0
+title = "GRASP Design Patterns"
+description = "Learn the 9 responsibility assignment design patterns."
+levels = [ ExtResource( 14 ), ExtResource( 18 ), ExtResource( 7 ) ]
+
+[node name="Smells" parent="MarginContainer/VBoxContainer/ScrollContainer/Chapters" instance=ExtResource( 3 )]
+margin_top = 546.0
+margin_right = 1872.0
+margin_bottom = 696.0
+title = "Code Smells"
+description = "Learn to avoid common programming bad habits."
+levels = [ ExtResource( 11 ) ]
+
+[node name="Gof" parent="MarginContainer/VBoxContainer/ScrollContainer/Chapters" instance=ExtResource( 3 )]
+margin_top = 728.0
+margin_right = 1872.0
+margin_bottom = 878.0
+title = "GoF Design Patterns"
+description = "Learn the Gang of Four design patterns."
+levels = [ ExtResource( 17 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 12 ) ]
+
+[node name="Algo" parent="MarginContainer/VBoxContainer/ScrollContainer/Chapters" instance=ExtResource( 3 )]
+visible = false
+margin_top = 910.0
+margin_right = 1860.0
+margin_bottom = 1060.0
+title = "Algorithmic"
+description = "Solve puzzles using algorithmic skills."
+levels = [ ExtResource( 10 ) ]
+
+[node name="InputBlocker" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PositionTween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 19 )
+anims/hide = SubResource( 20 )
+anims/show = SubResource( 21 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

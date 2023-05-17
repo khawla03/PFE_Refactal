@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/minimize_008.ogg-a7f7aec6e090c2d4e6193d6fe8e31472.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/minimize_008.ogg"
+dest_files=[ "res://.import/minimize_008.ogg-a7f7aec6e090c2d4e6193d6fe8e31472.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

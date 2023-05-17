@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/title2.tres" type="DynamicFont" id=1]
+[ext_resource path="res://entities/ui/InfoLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/ui/InfoRes.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+key = "extract_method"
+text = "Move the code to a separate new method (or function) and replace the old code with a call to the method."
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+key = "extract_class"
+text = "Create a new class and place the fields and methods responsible for the relevant functionality in it."
+
+[node name="Slide2" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_left = 100
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+margin_left = 100.0
+margin_right = 1820.0
+margin_bottom = 1080.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/VBox"]
+margin_top = 373.0
+margin_right = 1720.0
+margin_bottom = 435.0
+custom_fonts/font = ExtResource( 1 )
+text = "How to fix it?"
+align = 1
+
+[node name="Label2" type="Label" parent="Margin/VBox"]
+margin_top = 485.0
+margin_right = 1720.0
+margin_bottom = 525.0
+text = "Here are some solutions you can apply:"
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox"]
+margin_top = 575.0
+margin_right = 1720.0
+margin_bottom = 616.0
+custom_constants/margin_left = 100
+
+[node name="InfoLabel" parent="Margin/VBox/Margin" instance=ExtResource( 2 )]
+margin_left = 100.0
+margin_right = 1720.0
+margin_bottom = 41.0
+bbcode_enabled = true
+bbcode_text = "- If the duplicated code is in the same class, use [color=#fac705][url=extract_method]Extract Method[/url][/color]."
+text = "- If the duplicated code is in the same class, use Extract Method."
+fit_content_height = true
+infos = [ SubResource( 1 ) ]
+
+[node name="Margin1" type="MarginContainer" parent="Margin/VBox"]
+margin_top = 666.0
+margin_right = 1720.0
+margin_bottom = 707.0
+custom_constants/margin_left = 100
+
+[node name="InfoLabel2" parent="Margin/VBox/Margin1" instance=ExtResource( 2 )]
+margin_left = 100.0
+margin_right = 1720.0
+margin_bottom = 41.0
+bbcode_enabled = true
+bbcode_text = "- If the duplicated code is in two or more classes, use [color=#fac705][url=extract_class]Extract Class[/url][/color]."
+text = "- If the duplicated code is in two or more classes, use Extract Class."
+fit_content_height = true
+infos = [ SubResource( 2 ) ]

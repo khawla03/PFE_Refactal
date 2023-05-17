@@ -1,0 +1,307 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://levels/smells/duplication/CodeDuplicatioLevel.gd" type="Script" id=1]
+[ext_resource path="res://entities/map/Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/smells/duplication/info.tres" type="Resource" id=3]
+[ext_resource path="res://entities/button/ButtonItem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://entities/level/PlayerSpawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/doors/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://entities/screen/WideScreen.tscn" type="PackedScene" id=7]
+[ext_resource path="res://entities/screen/ScreenSquare.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/doors/Lights.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/computer/Computer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://entities/doors/DoorSingle.tscn" type="PackedScene" id=11]
+[ext_resource path="res://entities/constraints/LineLimitConstraint.tscn" type="PackedScene" id=12]
+[ext_resource path="res://levels/smells/duplication/lightmap/lightmap.lmbake" type="BakedLightmapData" id=13]
+[ext_resource path="res://entities/slider/Slider.tscn" type="PackedScene" id=14]
+[ext_resource path="res://levels/smells/duplication/slides/Slide2.tscn" type="PackedScene" id=15]
+[ext_resource path="res://levels/smells/duplication/slides/Slide1.tscn" type="PackedScene" id=16]
+[ext_resource path="res://entities/Item.gd" type="Script" id=17]
+
+[sub_resource type="GDScript" id=15]
+script/source = "extends Code
+
+
+# Executes an expression and set its result on a screen
+func executeExpression(expression, resultScreen):
+	var e = Expression.new()
+	e.parse(expression)
+	resultScreen.setValue(e.execute())
+"
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends WallButton
+
+
+var expressionScreen1 = getObject(\"ScreenExpression1\")
+var resultScreen1 = getObject(\"ScreenResult1\")
+
+
+# Called when this button is pressed
+func onButtonPressed():
+	var expressionValue = expressionScreen1.getValue()
+	var expression = Expression.new()
+	expression.parse(expressionValue)
+	var result = expression.execute()
+	resultScreen1.setValue(result)
+
+"
+
+[sub_resource type="GDScript" id=11]
+script/source = "extends WallButton
+
+
+var expressionScreen2 = getObject(\"ScreenExpression2\")
+var resultScreen2 = getObject(\"ScreenResult2\")
+
+
+# Called when this button is pressed
+func onButtonPressed():
+	var expressionValue = expressionScreen2.getValue()
+	var expression = Expression.new()
+	expression.parse(expressionValue)
+	var result = expression.execute()
+	resultScreen2.setValue(result)
+
+"
+
+[sub_resource type="GDScript" id=12]
+script/source = "extends WallButton
+
+
+var expressionScreen3 = getObject(\"ScreenExpression3\")
+var resultScreen3 = getObject(\"ScreenResult3\")
+
+
+# Called when this button is pressed
+func onButtonPressed():
+	var expressionValue = expressionScreen3.getValue()
+	var expression = Expression.new()
+	expression.parse(expressionValue)
+	var result = expression.execute()
+	resultScreen3.setValue(result)
+
+"
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Screen
+
+"
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Screen
+
+"
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Screen
+
+"
+
+[sub_resource type="GDScript" id=13]
+script/source = "extends Screen
+"
+
+[sub_resource type="GDScript" id=14]
+script/source = "extends Screen
+"
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Screen
+
+"
+
+[node name="CodeDuplicationLevel" type="Spatial"]
+script = ExtResource( 1 )
+level_info = ExtResource( 3 )
+slider = NodePath("Slider")
+map = NodePath("Map")
+spawner = NodePath("PlayerSpawner")
+
+[node name="Slider" parent="." instance=ExtResource( 14 )]
+slide_scenes = [ ExtResource( 16 ), ExtResource( 15 ) ]
+
+[node name="LineLimitConstraint" parent="." instance=ExtResource( 12 )]
+lines_limit = 26
+
+[node name="Map" parent="." instance=ExtResource( 2 )]
+data = {
+"cells": PoolIntArray( 1, 0, 33, 65533, 0, 33, 65535, 0, 34, 0, 1, 1441794, 65534, 1, 2, 262144, 1, 524313, 327678, 1, 524313, 1, 2, 1441799, 65533, 2, 1048583, 0, 3, 655363, 262144, 3, 524313, 327678, 3, 524313, 1, 4, 1441824, 65533, 4, 1048608, 0, 5, 655363, 262144, 5, 524313, 327678, 5, 524313, 1, 6, 1441801, 65533, 6, 1048585, 0, 7, 655363, 262144, 7, 524313, 327678, 7, 524313, 1, 8, 1441824, 65533, 8, 1048608, 0, 9, 655363, 262144, 9, 524313, 327678, 9, 524313, 1, 10, 1441799, 65533, 10, 1048583, 0, 11, 655362, 65534, 11, 1048578, 262144, 11, 524313, 327678, 11, 524313, 1, 12, 33, 65533, 12, 33, 65535, 12, 655397, 65535, 13, 655402, 1, 65514, 32, 3, 65514, 8, 5, 65514, 1441825, 65533, 65514, 1441822, 65535, 65514, 8, 0, 65515, 1441797, 2, 65515, 1441797, 4, 65515, 1441794, 65534, 65515, 2, 262144, 65515, 131097, 262146, 65515, 131097, 262148, 65515, 1310742, 327678, 65515, 131097, 5, 65516, 1441829, 65533, 65516, 1048583, 0, 65517, 655366, 2, 65517, 1048581, 4, 65517, 655362, 65534, 65517, 5, 262144, 65517, 131097, 262146, 65517, 131097, 262148, 65517, 1310742, 327678, 65517, 131097, 1, 65518, 1441822, 3, 65518, 655367, 5, 65518, 1441825, 65533, 65518, 1048608, 0, 65519, 655363, 262144, 65519, 131097, 327678, 65519, 131097, 1, 65520, 1441799, 65533, 65520, 1048583, 0, 65521, 655362, 65534, 65521, 1048578, 262144, 65521, 131094, 327678, 65521, 131094, 1, 65522, 33, 65533, 65522, 33, 65535, 65522, 655395, 1, 65523, 33, 3, 65523, 12, 5, 65523, 31, 65529, 65523, 31, 65531, 65523, 12, 65533, 65523, 33, 65535, 65523, 34, 0, 65524, 1441797, 2, 65524, 1441797, 4, 65524, 1441794, 65530, 65524, 2, 65532, 65524, 1441797, 65534, 65524, 1441797, 262144, 65524, 524313, 262146, 65524, 524313, 262148, 65524, 524313, 327674, 65524, 524313, 327676, 65524, 524313, 327678, 65524, 524313, 5, 65525, 1441803, 65529, 65525, 1048583, 0, 65526, 1441792, 2, 65526, 1441792, 4, 65526, 655365, 65530, 65526, 5, 65532, 65526, 1441792, 65534, 65526, 1441792, 262144, 65526, 524313, 262146, 65526, 524313, 262148, 65526, 524313, 327674, 65526, 524313, 327676, 65526, 524313, 327678, 65526, 524313, 5, 65527, 1441824, 65529, 65527, 1048608, 0, 65528, 1441796, 2, 65528, 1441792, 4, 65528, 655365, 65530, 65528, 5, 65532, 65528, 1441792, 65534, 65528, 1441796, 262144, 65528, 524311, 262146, 65528, 524313, 262148, 65528, 524313, 327674, 65528, 524313, 327676, 65528, 524313, 327678, 65528, 524312, 5, 65529, 1441803, 65529, 65529, 1048583, 0, 65530, 1441796, 2, 65530, 1441792, 4, 65530, 655365, 65530, 65530, 5, 65532, 65530, 1441792, 65534, 65530, 1441796, 262144, 65530, 524312, 262146, 65530, 524313, 262148, 65530, 524313, 327674, 65530, 524313, 327676, 65530, 524313, 327678, 65530, 524311, 5, 65531, 1441824, 65529, 65531, 1048608, 0, 65532, 1441792, 2, 65532, 1441792, 4, 65532, 655365, 65530, 65532, 5, 65532, 65532, 1441792, 65534, 65532, 1441792, 262144, 65532, 524313, 262146, 65532, 524313, 262148, 65532, 524313, 327674, 65532, 524313, 327676, 65532, 524313, 327678, 65532, 524313, 5, 65533, 1441803, 65529, 65533, 1048583, 0, 65534, 1048581, 2, 65534, 1048581, 4, 65534, 655362, 65530, 65534, 1048578, 65532, 65534, 1048581, 65534, 65534, 1048581, 262144, 65534, 524313, 262146, 65534, 524313, 262148, 65534, 524313, 327674, 65534, 524313, 327676, 65534, 524313, 327678, 65534, 524313, 1, 65535, 1441825, 3, 65535, 655367, 5, 65535, 31, 65529, 65535, 31, 65531, 65535, 655367, 65533, 65535, 1441825, 65535, 65535, 655395 )
+}
+
+[node name="PlayerSpawner" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 11.5 )
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2.5, -4.5 )
+extents = Vector3( 9, 4, 19.5 )
+quality = 0
+use_hdr = false
+use_color = false
+capture_quality = 0
+light_data = ExtResource( 13 )
+
+[node name="Lights" type="Spatial" parent="."]
+
+[node name="OmniLight" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2.5, 6.5 )
+omni_range = 10.0
+
+[node name="OmniLight2" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2.5, -19.5 )
+omni_range = 10.0
+
+[node name="OmniLight3" type="OmniLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3, -6.5 )
+omni_range = 20.0
+
+[node name="Tuto" type="Spatial" parent="."]
+
+[node name="Door0" parent="Tuto" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, 0.5 )
+display_name = "Door"
+description = "Press the button to execute the expression"
+
+[node name="Button0" parent="Tuto" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37723, 2, 0.857824 )
+display_name = "Button"
+description = "Rress to execute the expression"
+is_interactable = true
+interaction_message = "to press"
+
+[node name="Screen00" parent="Tuto" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.089, 3.7151, 0.28336 )
+
+[node name="Screen01" parent="Tuto" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119481, 3.7151, 0.28336 )
+
+[node name="Items" type="Spatial" parent="."]
+
+[node name="Calculator" type="StaticBody" parent="Items"]
+script = ExtResource( 17 )
+code = SubResource( 15 )
+display_name = "Controller"
+description = "Screen controller"
+is_programmable = true
+
+[node name="Button1" parent="Items" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.67431, 2, -2.49465 )
+code = SubResource( 10 )
+display_name = "Button1"
+description = "Programme this button in the computer"
+is_programmable = true
+is_interactable = true
+interaction_message = "to press"
+connect_pressed = true
+
+[node name="Button2" parent="Items" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.67431, 2, -6.49465 )
+code = SubResource( 11 )
+display_name = "Button2"
+description = "Programme this button in the computer"
+is_programmable = true
+is_interactable = true
+interaction_message = "to press"
+connect_pressed = true
+
+[node name="Button3" parent="Items" instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.67431, 2, -10.4947 )
+code = SubResource( 12 )
+display_name = "Button3"
+description = "Programme this button in the computer"
+is_programmable = true
+is_interactable = true
+interaction_message = "to press"
+connect_pressed = true
+
+[node name="OP1" parent="Items" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.71639, 3.29348, -2.5 )
+code = SubResource( 2 )
+display_name = "ScreenExpression1"
+description = "Execute this expression and put the result in the screen below"
+is_programmable = true
+locked = true
+
+[node name="OP2" parent="Items" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.71639, 3.29348, -6.5 )
+code = SubResource( 3 )
+display_name = "ScreenExpression2"
+description = "Execute this expression and put the result in the screen below"
+is_programmable = true
+locked = true
+
+[node name="OP3" parent="Items" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.71639, 3.29348, -10.5 )
+code = SubResource( 4 )
+display_name = "ScreenExpression3"
+description = "Execute this expression and put the result in the screen below"
+is_programmable = true
+locked = true
+
+[node name="Result1" parent="Items" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.7283, 2.6196, -2.5 )
+code = SubResource( 13 )
+display_name = "ScreenResult1"
+description = "Put the result of the expression above in this screen"
+is_programmable = true
+locked = true
+value = "?"
+can_set_value = true
+
+[node name="Result2" parent="Items" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.7283, 2.6196, -6.5 )
+code = SubResource( 14 )
+display_name = "ScreenResult2"
+description = "Put the result of the expression above in this screen"
+is_programmable = true
+locked = true
+value = "?"
+can_set_value = true
+
+[node name="Result3" parent="Items" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.7283, 2.6196, -10.5 )
+code = SubResource( 7 )
+display_name = "ScreenResult3"
+description = "Put the result of the expression above in this screen"
+is_programmable = true
+locked = true
+value = "?"
+can_set_value = true
+
+[node name="Door" parent="Items" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.5, -12.5 )
+display_name = "Door"
+description = "Execute all the expressions on the left wall to open"
+lights_path = NodePath("../Lights")
+
+[node name="Lights" parent="Items" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.782141, 3.73435, -12.7224 )
+display_name = "Lights"
+description = "when all the lights are on, opens the door"
+lights = 3
+
+[node name="Computer" parent="Items" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.579508, 0.5, -6.42161 )
+
+[node name="DoorSingle" parent="Items" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0.5, -19.5 )
+display_name = "ExitDoor"
+description = "Open to move to te next level"
+is_interactable = true
+interaction_message = "to open"
+
+[node name="ValueChanger" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="pressed" from="Tuto/Button0" to="." method="_on_Button0_pressed"]
+[connection signal="pressed" from="Items/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="Items/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Items/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="value_changed" from="Items/Result1" to="." method="_on_Result1_value_changed"]
+[connection signal="value_changed" from="Items/Result2" to="." method="_on_Result2_value_changed"]
+[connection signal="value_changed" from="Items/Result3" to="." method="_on_Result3_value_changed"]
+[connection signal="opened" from="Items/Door" to="." method="_on_Door_opened"]
+[connection signal="started_coding" from="Items/Computer" to="." method="_on_Computer_started_coding"]
+[connection signal="interact" from="Items/DoorSingle" to="." method="_on_DoorSingle_interact"]
+[connection signal="timeout" from="ValueChanger" to="." method="_on_ValueChanger_timeout"]

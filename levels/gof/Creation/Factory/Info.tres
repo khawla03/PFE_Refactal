@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://entities/level/LevelInfo.gd" type="Script" id=1]
+[ext_resource path="res://levels/gof/structure/facade/info.tres" type="Resource" id=2]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "Info"
+script = ExtResource( 1 )
+id = "FactoryLevel"
+title = "Factory Method"
+shortDescription = "Factory Method Level"
+description = "The Factory Methode pattern is one of GOF creational design patterns."
+path = "res://levels/gof/Creation/Factory/FactoryLevel.tscn"
+next_level = ExtResource( 2 )

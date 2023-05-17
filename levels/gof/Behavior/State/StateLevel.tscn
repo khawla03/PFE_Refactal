@@ -1,0 +1,192 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://entities/doors/DoorSingle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/doors/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/map/Map.tscn" type="PackedScene" id=3]
+[ext_resource path="res://entities/computer/Computer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/gof/Behavior/State/StateLevel.gd" type="Script" id=5]
+[ext_resource path="res://entities/Oxygene/ox bottles.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/gof/Behavior/State/lightmap/lightmap.lmbake" type="BakedLightmapData" id=7]
+[ext_resource path="res://levels/gof/Behavior/State/Slides/hint.tscn" type="PackedScene" id=8]
+[ext_resource path="res://entities/Hint/Hint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/Item.gd" type="Script" id=15]
+[ext_resource path="res://entities/level/PlayerSpawner.gd" type="Script" id=16]
+[ext_resource path="res://entities/slider/Slider.tscn" type="PackedScene" id=17]
+[ext_resource path="res://levels/gof/Behavior/State/Slides/Slide.tscn" type="PackedScene" id=18]
+[ext_resource path="res://levels/gof/Behavior/State/Info.tres" type="Resource" id=19]
+[ext_resource path="res://entities/button/ButtonItem.tscn" type="PackedScene" id=20]
+
+[sub_resource type="GDScript" id=9]
+script/source = "extends OxBottles
+
+var fullState = getObject(\"FullState\")
+var emptyState = getObject(\"EmptyState\")
+var state = getObject(\"State\") 
+
+
+
+func setState(newState = emptyState):
+	state = newState
+
+func fillBottles():
+	#use the fillBottles() of the state 
+	pass
+
+func emptyBottles():
+	#use the emptyBottles() of the state 
+	pass
+
+"
+
+[sub_resource type="GDScript" id=11]
+script/source = "#EmptyState
+extends \"user://temp/State.gd\"
+
+var context = getObject(\"OxBottles\")
+var state = getObject(\"FullState\")
+
+func fillBottles():
+	#use the context's fill() methode 
+	#and change its state to full using setState() method
+	pass
+	
+func emptyBottles():
+	#you can print a warning message using print() method
+	pass
+"
+
+[sub_resource type="GDScript" id=12]
+script/source = "#FullState
+extends \"user://temp/State.gd\"
+
+
+var context = getObject(\"OxBottles\")
+var state= getObject(\"EmptyState\")
+
+func emptyBottles():
+	#use the context's empty() methode and change its state to full using setState() method
+	pass
+
+func fillBottles():
+	#you can print a warning message using print() methode
+	pass
+"
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends WallButton
+
+var oxBottles = getObject(\"OxBottles\")
+var state= getObject(\"EmptyState\")
+
+func onButtonPressed():
+	oxBottles.setState(state)
+	oxBottles.fillBottles()
+"
+
+[node name="StateLevel" type="Spatial"]
+script = ExtResource( 5 )
+level_info = ExtResource( 19 )
+slider = NodePath("Slider")
+map = NodePath("Map")
+spawner = NodePath("PlayerSpawner")
+hints = NodePath("Hints")
+
+[node name="PlayerSpawner" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.44998, 1.0422, 16.7583 )
+script = ExtResource( 16 )
+
+[node name="Map" parent="." instance=ExtResource( 3 )]
+data = {
+"cells": PoolIntArray( 1, 0, -536870912, 3, 0, -536870912, 5, 0, -536870912, 7, 0, -536870912, 9, 0, -536870912, 11, 0, -536870907, 13, 0, -536215547, 65531, 0, -536870907, 65533, 0, -536215547, 65535, 0, -536870912, 262145, 0, -535691246, 262147, 0, -535691246, 262149, 0, -535691246, 262151, 0, -535691246, 262153, 0, -535691246, 262155, 0, -535691246, 262157, 0, -535691246, 327675, 0, -535691246, 327677, 0, -535691246, 327679, 0, -535691246, 14, 1, -535429108, 65530, 1, -535822324, 1, 2, -536870912, 3, 2, -536870912, 5, 2, -536870912, 7, 2, -536870912, 9, 2, -536870912, 11, 2, -536870907, 13, 2, -536215547, 65531, 2, -536870907, 65533, 2, -536215547, 65535, 2, -536870912, 262145, 2, -535691246, 262147, 2, -535691246, 262149, 2, -535691246, 262151, 2, -535691246, 262153, 2, -535691246, 262155, 2, -535691246, 262157, 2, -535691246, 327675, 2, -535691246, 327677, 2, -535691246, 327679, 2, -535691246, 1, 4, -535429115, 3, 4, -535429115, 5, 4, -535429115, 7, 4, -535429115, 9, 4, -535429115, 11, 4, -536870906, 13, 4, -536215547, 65531, 4, -536870907, 65533, 4, -535429114, 65535, 4, -535429115, 262145, 4, -535691246, 262147, 4, -535691246, 262149, 4, -535691246, 262151, 4, -535691246, 262153, 4, -535691246, 262155, 4, -535691246, 262157, 4, -535691246, 327675, 4, -535691246, 327677, 4, -535691246, 327679, 4, -535691246, 14, 5, -535429108, 65530, 5, -535822324, 1, 6, -535822331, 3, 6, -535822331, 5, 6, -535822331, 7, 6, -535822331, 9, 6, -535822331, 11, 6, -535822331, 13, 6, -536215550, 65531, 6, -535822334, 65533, 6, -535822331, 65535, 6, -535822331, 262145, 6, -535691246, 262147, 6, -535691246, 262149, 6, -535691246, 262151, 6, -535691246, 262153, 6, -535691246, 262155, 6, -535691246, 262157, 6, -535691246, 327675, 6, -535691246, 327677, 6, -535691246, 327679, 6, -535691246, 0, 7, -536215543, 4, 7, -536215513, 8, 7, -536215543, 12, 7, -536215543, 14, 7, -536215521, 65530, 7, -536215521, 65532, 7, -536215543, 262155, 7, -535691246, 2, 9, -536215521, 4, 9, -536870874, 6, 9, -536215521, 3, 10, -536870910, 5, 10, -535429118, 262147, 10, -535691244, 262149, 10, -535691244, 2, 11, -535822327, 6, 11, -535429111, 5, 12, -536215549, 262147, 12, -535691244, 262149, 12, -535691244, 5, 14, -536215549, 262147, 14, -535691244, 262149, 14, -535691244, 2, 15, -535822327, 6, 15, -535429111, 3, 16, -535822334, 5, 16, -536215550, 262147, 16, -535691244, 262149, 16, -535691244, 2, 17, -536215521, 4, 17, -536215515, 6, 17, -536215521, 2, 65509, -536870881, 4, 65509, -536870875, 6, 65509, -536870881, 3, 65510, -536870910, 5, 65510, -535429118, 262147, 65510, -535691244, 262149, 65510, -535691244, 2, 65511, -535822327, 6, 65511, -535429111, 3, 65512, -536870909, 262147, 65512, -535691244, 262149, 65512, -535691244, 3, 65514, -536870909, 262147, 65514, -535691244, 262149, 65514, -535691244, 2, 65515, -535822327, 6, 65515, -535429111, 3, 65516, -536870909, 262147, 65516, -535691244, 262149, 65516, -535691244, 3, 65518, -536870909, 262147, 65518, -535691244, 262149, 65518, -535691244, 2, 65519, -535822327, 6, 65519, -535429111, 3, 65520, -535822334, 5, 65520, -536215550, 262147, 65520, -535691244, 262149, 65520, -535691244, 2, 65521, -536870881, 4, 65521, -536215517, 6, 65521, -536870881, 262147, 65522, -535691244, 262149, 65522, -535691244, 0, 65523, -536870895, 4, 65523, -536870876, 8, 65523, -536870895, 12, 65523, -536870895, 14, 65523, -536215521, 65530, 65523, -536215522, 65532, 65523, -536870895, 1, 65524, -535429115, 3, 65524, -535429115, 5, 65524, -535429115, 7, 65524, -535429115, 9, 65524, -535429115, 11, 65524, -535429115, 13, 65524, -535429118, 65531, 65524, -536870910, 65532, 65524, -536215512, 65533, 65524, -535429115, 65535, 65524, -535429115, 262145, 65524, -535691246, 262147, 65524, -535691246, 262149, 65524, -535691246, 262151, 65524, -535691246, 262153, 65524, -535691246, 262155, 65524, -535691246, 262157, 65524, -535691246, 327675, 65524, -535691246, 327677, 65524, -535691246, 327679, 65524, -535691246, 14, 65525, -535429108, 65530, 65525, -535822324, 1, 65526, -535822331, 3, 65526, -535822331, 5, 65526, -535822331, 7, 65526, -535822331, 9, 65526, -535822331, 11, 65526, -535822330, 13, 65526, -536215547, 65531, 65526, -536870907, 65533, 65526, -536215546, 65535, 65526, -535822331, 262145, 65526, -535691246, 262147, 65526, -535691246, 262149, 65526, -535691246, 262151, 65526, -535691246, 262153, 65526, -535691246, 262155, 65526, -535691246, 262157, 65526, -535691246, 327675, 65526, -535691246, 327677, 65526, -535691246, 327679, 65526, -535691246, 1, 65528, -536870912, 3, 65528, -536870912, 5, 65528, -536870912, 7, 65528, -536870912, 9, 65528, -536870912, 11, 65528, -536870907, 13, 65528, -536215547, 65531, 65528, -536870907, 65533, 65528, -536215547, 65535, 65528, -536870912, 262145, 65528, -535691246, 262147, 65528, -535691246, 262149, 65528, -535691246, 262151, 65528, -535691246, 262153, 65528, -535691246, 262155, 65528, -535691246, 262157, 65528, -535691246, 327675, 65528, -535691246, 327677, 65528, -535691246, 327679, 65528, -535691246, 14, 65529, -535429108, 65530, 65529, -535822324, 1, 65530, -536870912, 3, 65530, -536870912, 5, 65530, -536870912, 7, 65530, -536870912, 9, 65530, -536870912, 11, 65530, -536870907, 13, 65530, -536215547, 65531, 65530, -536870907, 65533, 65530, -536215547, 65535, 65530, -536870912, 262145, 65530, -535691246, 262147, 65530, -535691246, 262149, 65530, -535691246, 262151, 65530, -535691246, 262153, 65530, -535691246, 262155, 65530, -535691246, 262157, 65530, -535691246, 327675, 65530, -535691246, 327677, 65530, -535691246, 327679, 65530, -535691246, 1, 65532, -536870912, 3, 65532, -535429116, 5, 65532, -535429116, 7, 65532, -536870912, 9, 65532, -536870912, 11, 65532, -536870907, 13, 65532, -536215547, 65531, 65532, -536870907, 65533, 65532, -536215547, 65535, 65532, -536870912, 262145, 65532, -535691246, 262147, 65532, -535691246, 262149, 65532, -535691246, 262151, 65532, -535691246, 262153, 65532, -535691246, 262155, 65532, -535691246, 262157, 65532, -535691246, 327675, 65532, -535691246, 327677, 65532, -535691246, 327679, 65532, -535691246, 14, 65533, -535429108, 65530, 65533, -535822324, 1, 65534, -536870912, 3, 65534, -535429116, 5, 65534, -535429116, 7, 65534, -536870912, 9, 65534, -536870912, 11, 65534, -536870907, 13, 65534, -536215547, 65531, 65534, -536870907, 65533, 65534, -536215547, 65535, 65534, -536870912, 262145, 65534, -535691246, 262147, 65534, -535691246, 262149, 65534, -535691246, 262151, 65534, -535691246, 262153, 65534, -535691246, 262155, 65534, -535691246, 262157, 65534, -535691246, 327675, 65534, -535691246, 327677, 65534, -535691246, 327679, 65534, -535691246 )
+}
+
+[node name="Slider" parent="." instance=ExtResource( 17 )]
+slide_scenes = [ ExtResource( 18 ) ]
+
+[node name="Hints" parent="." instance=ExtResource( 9 )]
+slide_scenes = [ ExtResource( 18 ), ExtResource( 8 ) ]
+
+[node name="BakedLightmap" type="BakedLightmap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.86202, 2.21341, -2.08797 )
+extents = Vector3( 27.0362, 3.23699, 27.9815 )
+quality = 0
+use_hdr = false
+use_color = false
+capture_quality = 0
+light_data = ExtResource( 7 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89658, 2.73046, 0 )
+omni_range = 64.794
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.88376, 2.31199, 14.2178 )
+omni_range = 7.58451
+
+[node name="OmniLight3" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33441, 2.13569, -20.0137 )
+omni_range = 11.9569
+
+[node name="DoorSingle" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.4959, 0.490727, 18.2557 )
+
+[node name="Door" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.51775, 0.522771, -13.2959 )
+
+[node name="Computer" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.51178, 0.478695, -2.31178 )
+
+[node name="State" type="StaticBody" parent="."]
+script = ExtResource( 15 )
+display_name = "State"
+is_programmable = true
+locked = true
+built_in = false
+starting_script = "class_name State extends Code
+
+func fillBottles():
+	print(\"pass\")
+	pass
+	
+func emptyBottles():
+	pass
+	
+"
+
+[node name="ox bottles" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1.00079e-08, 0, 0.228954, 0, 0.228954, 0, -0.228954, 0, -1.00079e-08, -4.54293, 1.06558, -1.21063 )
+code = SubResource( 9 )
+display_name = "OxBottles"
+is_programmable = true
+is_interactable = true
+
+[node name="Empty" type="StaticBody" parent="."]
+script = ExtResource( 15 )
+code = SubResource( 11 )
+display_name = "EmptyState"
+is_programmable = true
+
+[node name="Full" type="StaticBody" parent="."]
+script = ExtResource( 15 )
+code = SubResource( 12 )
+display_name = "FullState"
+is_programmable = true
+
+[node name="Button" parent="." instance=ExtResource( 20 )]
+transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -4.44294, 0.796263, -0.753363 )
+code = SubResource( 10 )
+display_name = "Button"
+is_programmable = true
+connect_pressed = true
+
+[node name="CheckTimer" type="Timer" parent="."]
+
+[node name="DoorSingle2" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.52105, 0.544075, -26.2446 )
+display_name = "Door"
+is_interactable = true
+
+[connection signal="interact" from="ox bottles" to="." method="_on_ox_bottles_interact"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="CheckTimer" to="." method="_on_CheckTimer_timeout"]
+[connection signal="interact" from="DoorSingle2" to="." method="_on_DoorSingle2_interact"]

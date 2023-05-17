@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/gof/structure/facade/slides/PFE-Facade hint.drawio.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/title2.tres" type="DynamicFont" id=2]
+
+[node name="Slide1" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 100
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 100
+
+[node name="HBox" type="HBoxContainer" parent="Margin"]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 1820.0
+margin_bottom = 980.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox"]
+margin_right = 1309.0
+margin_bottom = 880.0
+size_flags_horizontal = 3
+custom_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/HBox/VBox"]
+margin_top = 251.0
+margin_right = 1309.0
+margin_bottom = 291.0
+text = "We will use the button to interact with all screens using the facade"
+autowrap = true
+
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox/VBox"]
+margin_top = 341.0
+margin_right = 1309.0
+margin_bottom = 629.0
+custom_constants/separation = 30
+
+[node name="Label2" type="Label" parent="Margin/HBox/VBox/VBox"]
+margin_right = 1309.0
+margin_bottom = 62.0
+custom_fonts/font = ExtResource( 2 )
+text = "What you need to do"
+autowrap = true
+
+[node name="Label" type="Label" parent="Margin/HBox/VBox/VBox"]
+margin_top = 92.0
+margin_right = 1309.0
+margin_bottom = 218.0
+text = "You need to call the right method for each screen in the facade class.
+You will find the methods for each screen in the methods panel at the bottom left of the programming screen"
+autowrap = true
+
+[node name="Label3" type="Label" parent="Margin/HBox/VBox/VBox"]
+margin_top = 248.0
+margin_right = 1309.0
+margin_bottom = 288.0
+autowrap = true
+
+[node name="TextureRect" type="TextureRect" parent="Margin/HBox"]
+margin_left = 1359.0
+margin_top = 319.0
+margin_right = 1720.0
+margin_bottom = 560.0
+size_flags_vertical = 4
+texture = ExtResource( 1 )

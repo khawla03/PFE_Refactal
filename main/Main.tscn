@@ -1,0 +1,384 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://main/MainPanel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://main/ChapterPanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://main/LevelPanel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://main/LevelDetailPanel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://main/LevelLoader.gd" type="Script" id=5]
+[ext_resource path="res://assets/fonts/digital-7.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://main/LoadingScreen.gd" type="Script" id=7]
+[ext_resource path="res://main/MainMenu.gd" type="Script" id=8]
+[ext_resource path="res://assets/shaders/main_menu_blur.tres" type="Material" id=9]
+[ext_resource path="res://main/MainCamera.gd" type="Script" id=10]
+[ext_resource path="res://main/MainMusic.gd" type="Script" id=11]
+[ext_resource path="res://main/Main.gd" type="Script" id=12]
+[ext_resource path="res://main/Intro.tscn" type="PackedScene" id=13]
+[ext_resource path="res://entities/ui/FormPopup.tscn" type="PackedScene" id=14]
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_top = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 1, 1, 1, 0.0784314 )
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Theme" id=11]
+Button/styles/disabled = SubResource( 12 )
+Button/styles/focus = SubResource( 13 )
+Button/styles/hover = SubResource( 9 )
+Button/styles/normal = SubResource( 10 )
+Button/styles/pressed = SubResource( 14 )
+
+[sub_resource type="Shader" id=15]
+code = "shader_type canvas_item;
+
+uniform vec4 in_color:hint_color;
+uniform vec4 out_color:hint_color;
+
+uniform float in_out:hint_range(0.,1.)=0.;
+
+uniform float position:hint_range(-1.5,1.) = 0.856;
+uniform vec2 size = vec2(16., 16.);
+
+void fragment(){
+    vec2 a = (1./SCREEN_PIXEL_SIZE) / size;
+    
+    vec2 uv=UV;
+    uv *= a;
+    
+    vec2 i_uv = floor(uv);
+    vec2 f_uv = fract(uv);
+    
+    float wave = max(0.,i_uv.x/(a.x) - position);
+    
+    vec2 center = f_uv*2.-1.;
+    float circle = length(center);
+    circle = 1. - step(wave,circle);
+    
+    vec4 color = mix(in_color, out_color, step(0.5, in_out));
+    
+    COLOR=vec4(circle) * color;
+}"
+
+[sub_resource type="ShaderMaterial" id=16]
+shader = SubResource( 15 )
+shader_param/in_color = Color( 0, 0, 0, 1 )
+shader_param/out_color = Color( 0, 0, 0, 1 )
+shader_param/in_out = 0.0
+shader_param/position = -1.5
+shader_param/size = Vector2( 16, 16 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 60
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:material:shader_param/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LoadingLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LoadingLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:material:shader_param/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -1.5, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LoadingLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("LoadingTextChanger")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("LoadingLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:material:shader_param/position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, -1.5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LoadingLabel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("LoadingTextChanger")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("LoadingLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="Main" type="Node"]
+script = ExtResource( 12 )
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+script = ExtResource( 8 )
+
+[node name="Background" type="Control" parent="MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 11 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+alignment = 1
+
+[node name="MainPanel" parent="MainMenu/Background/HBoxContainer" instance=ExtResource( 1 )]
+material = ExtResource( 9 )
+
+[node name="ChapterPanel" parent="MainMenu/Background/HBoxContainer" instance=ExtResource( 2 )]
+material = ExtResource( 9 )
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 480.0
+margin_right = 960.0
+margin_bottom = 1080.0
+
+[node name="LevelPanel" parent="MainMenu/Background/HBoxContainer" instance=ExtResource( 3 )]
+material = ExtResource( 9 )
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1440.0
+margin_bottom = 1080.0
+
+[node name="LevelDetailPanel" parent="MainMenu/Background/HBoxContainer" instance=ExtResource( 4 )]
+material = ExtResource( 9 )
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+
+[node name="FormPopup" parent="MainMenu/Background" instance=ExtResource( 14 )]
+margin_top = -394.0
+margin_bottom = -156.0
+delay = 1.0
+
+[node name="LevelLoader" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="LoadingScreen" type="CanvasLayer" parent="LevelLoader"]
+layer = 10
+script = ExtResource( 7 )
+
+[node name="ColorRect" type="ColorRect" parent="LevelLoader/LoadingScreen"]
+visible = false
+material = SubResource( 16 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="LoadingLabel" type="Label" parent="LevelLoader/LoadingScreen"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 17 )
+text = "Loading"
+align = 1
+valign = 1
+
+[node name="LoadingTextChanger" type="Timer" parent="LevelLoader/LoadingScreen"]
+wait_time = 0.33
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelLoader/LoadingScreen"]
+anims/RESET = SubResource( 18 )
+anims/hide = SubResource( 20 )
+anims/show = SubResource( 19 )
+
+[node name="MainCamera" type="Camera" parent="."]
+current = true
+far = 400.0
+script = ExtResource( 10 )
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+script = ExtResource( 11 )
+
+[node name="Intro" parent="." instance=ExtResource( 13 )]
+
+[connection signal="continue_game" from="MainMenu/Background/HBoxContainer/MainPanel" to="LevelLoader" method="_on_MainPanel_continue_game"]
+[connection signal="leaderboard" from="MainMenu/Background/HBoxContainer/MainPanel" to="MainMenu" method="_on_MainPanel_leaderboard"]
+[connection signal="level_button_toggled" from="MainMenu/Background/HBoxContainer/MainPanel" to="MainMenu" method="_on_MainPanel_level_button_toggled"]
+[connection signal="new_game" from="MainMenu/Background/HBoxContainer/MainPanel" to="." method="_on_MainPanel_new_game"]
+[connection signal="new_game" from="MainMenu/Background/HBoxContainer/MainPanel" to="MainMenu" method="_on_MainPanel_new_game"]
+[connection signal="new_game" from="MainMenu/Background/HBoxContainer/MainPanel" to="MainMenu/Background/FormPopup" method="hide"]
+[connection signal="new_game" from="MainMenu/Background/HBoxContainer/MainPanel" to="MainCamera" method="_on_MainPanel_new_game"]
+[connection signal="shown" from="MainMenu/Background/HBoxContainer/MainPanel" to="MainMenu/Background/FormPopup" method="show"]
+[connection signal="chapter_toggled" from="MainMenu/Background/HBoxContainer/ChapterPanel" to="MainMenu" method="_on_ChapterPanel_chapter_toggled"]
+[connection signal="hidden" from="MainMenu/Background/HBoxContainer/ChapterPanel" to="MainMenu/Background/FormPopup" method="show"]
+[connection signal="shown" from="MainMenu/Background/HBoxContainer/ChapterPanel" to="MainMenu/Background/FormPopup" method="hide"]
+[connection signal="level_toggled" from="MainMenu/Background/HBoxContainer/LevelPanel" to="MainMenu" method="_on_LevelPanel_level_toggled"]
+[connection signal="level_launched" from="MainMenu/Background/HBoxContainer/LevelDetailPanel" to="LevelLoader" method="_on_LevelDetailPanel_level_launched"]
+[connection signal="about_to_load" from="LevelLoader" to="MainMenu/Background/FormPopup" method="hide"]
+[connection signal="level_loaded" from="LevelLoader" to="MainMusic" method="_on_LevelLoader_level_loaded"]
+[connection signal="return_to_menu" from="LevelLoader" to="MainMenu" method="_on_LevelLoader_return_to_menu"]
+[connection signal="return_to_menu" from="LevelLoader" to="MainCamera" method="_on_LevelLoader_return_to_menu"]
+[connection signal="return_to_menu" from="LevelLoader" to="MainMusic" method="_on_LevelLoader_return_to_menu"]
+[connection signal="started_loading" from="LevelLoader" to="MainMenu" method="_on_LevelLoader_started_loading"]
+[connection signal="started_loading" from="LevelLoader" to="MainCamera" method="_on_LevelLoader_started_loading"]
+[connection signal="timeout" from="LevelLoader/LoadingScreen/LoadingTextChanger" to="LevelLoader/LoadingScreen" method="_on_LoadingTextChanger_timeout"]
+[connection signal="animation_finished" from="LevelLoader/LoadingScreen/AnimationPlayer" to="LevelLoader/LoadingScreen" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="intro_finished" from="Intro" to="MainMenu" method="_on_Intro_intro_finished"]
+[connection signal="intro_finished" from="Intro" to="MainCamera" method="_on_Intro_intro_finished"]

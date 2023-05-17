@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://entities/level/LevelInfo.gd" type="Script" id=1]
+[ext_resource path="res://levels/tests/info.tres" type="Resource" id=2]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "info"
+script = ExtResource( 1 )
+id = "test03"
+title = "test3"
+shortDescription = "Level short description."
+description = "Level description."
+path = ""
+next_level = ExtResource( 2 )

@@ -1,0 +1,292 @@
+{
+	"files": [
+
+	],
+	"folders": {
+		"Characters": {
+			"files": [
+				"character-1652920922.json"
+			],
+			"folders": {
+
+			},
+			"metadata": {
+				"color": null,
+				"folded": true
+			}
+		},
+		"Definitions": {
+			"files": [
+				"1652974798-648",
+				"1652974819-787",
+				"1659351979-648",
+				"1683159621-648"
+			],
+			"folders": {
+
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		},
+		"Themes": {
+			"files": [
+				"default-theme.cfg",
+				"theme-1655731477.cfg"
+			],
+			"folders": {
+
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		},
+		"Timelines": {
+			"files": [
+
+			],
+			"folders": {
+				"Controls": {
+					"files": [
+						"timeline-1655894428.json",
+						"timeline-1655942433.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Final": {
+					"files": [
+						"timeline-1661734024.json",
+						"timeline-1661734804.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Gof": {
+					"files": [
+
+					],
+					"folders": {
+						"observer": {
+							"files": [
+								"timeline-1659373682.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Grasp": {
+					"files": [
+						"timeline-1659371902.json"
+					],
+					"folders": {
+						"Expert": {
+							"files": [
+								"timeline-1683159034.json",
+								"timeline-1683159211.json",
+								"timeline-1683159411.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Hints": {
+					"files": [
+						"timeline-1678871944.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Intro": {
+					"files": [
+						"timeline-1652920908.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Smells": {
+					"files": [
+
+					],
+					"folders": {
+						"Duplication": {
+							"files": [
+								"timeline-1659351906.json",
+								"timeline-1660497510.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Solid": {
+					"files": [
+
+					],
+					"folders": {
+						"SRP": {
+							"files": [
+								"timeline-1659353026.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": true
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Tuto": {
+					"files": [
+
+					],
+					"folders": {
+						"Tuto1": {
+							"files": [
+								"timeline-1659190526.json",
+								"timeline-1659200702.json",
+								"timeline-1659255897.json",
+								"timeline-1659262469.json",
+								"timeline-1659262778.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						},
+						"Tuto2": {
+							"files": [
+								"timeline-1659287571.json",
+								"timeline-1659290080.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": true
+							}
+						},
+						"Tuto3": {
+							"files": [
+								"timeline-1659293522.json",
+								"timeline-1659295086.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": true
+							}
+						},
+						"Tuto4": {
+							"files": [
+								"timeline-1659304691.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": true
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"tests": {
+					"files": [
+
+					],
+					"folders": {
+						"test3": {
+							"files": [
+								"timeline-1676048039.json",
+								"timeline-1676048641.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				}
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		}
+	}
+}

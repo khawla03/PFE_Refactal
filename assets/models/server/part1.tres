@@ -1,0 +1,18 @@
+[gd_resource type="ArrayMesh" load_steps=2 format=2]
+
+[ext_resource path="res://assets/models/server/anisotropic2SG.material" type="Material" id=1]
+
+[resource]
+resource_name = "Sketchfab_Scene_Object_0"
+surfaces/0 = {
+"aabb": AABB( 3.05349, -4.75173, 0.454141, 3.86098, 1.00136e-05, 13.0448 ),
+"array_data": PoolByteArray( 74, 67, 221, 64, 42, 14, 152, 192, 183, 251, 87, 65, 0, 127, 127, 129, 201, 36, 63, 57, 74, 67, 221, 64, 42, 14, 152, 192, 43, 133, 232, 62, 0, 127, 127, 129, 24, 57, 63, 57, 114, 108, 67, 64, 42, 14, 152, 192, 183, 251, 87, 65, 0, 127, 127, 129, 201, 36, 25, 59, 114, 108, 67, 64, 42, 14, 152, 192, 43, 133, 232, 62, 0, 127, 127, 129, 24, 57, 25, 59 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 2, 0, 3, 0, 1, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
