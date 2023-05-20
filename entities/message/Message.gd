@@ -3,8 +3,8 @@ class_name Message extends Code
 
 # Declare member variables here. Examples:
 # var a = 2
-export(String) var content = "this is a message" setget setMsgContent, getMsgContent
-export(String) var contact = "this is a message" setget setContact, getContact
+export(String) var content = "this is a message" setget setContent, getContent
+export(String) var contact = "this is a message" setget setContent, getContent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,12 +14,12 @@ func show():
 	pass
 
 
-func setMsgContent(newContent:String):
+func setContent(newContent:String):
 	content=newContent
 	_item.set_message(newContent)
 	
 
-func getMsgContent() -> String:
+func getContent() -> String:
 	return content
 
 
@@ -31,5 +31,3 @@ func setContact(newContact:String):
 func getContact() -> String:
 	return contact
 
-func sendMessage():
-	_item.send_message()

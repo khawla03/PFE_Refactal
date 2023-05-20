@@ -3,9 +3,8 @@ extends Item
 
 export(String) var contact := "Station B" setget set_contact
 export(String) var message := "Hello, It's Bazz" setget set_message
-onready var dest = $Viewport/VBoxContainer/HBoxContainer/Des as Label
-onready var namelabel = $Viewport/VBoxContainer/HBoxContainer/name as Label
-onready var messagelabel = $Viewport/VBoxContainer/message as Label
+onready var namelabel = $Viewport/VBoxContainer/name
+onready var messagelabel = $Viewport/VBoxContainer/message
 
 var is_on := true
 
@@ -33,11 +32,6 @@ func interact(player):
 	set_contact("from: StationB")
 	set_message("Message body")
 
-func send_message():
-	dest.hide()
-	namelabel.hide()
-	set_message("Message Sent Successfully")
-	pass
 
 func shutDown():
 	if is_on:

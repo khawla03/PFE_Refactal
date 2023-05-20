@@ -6,7 +6,7 @@ onready var mainPanel = $Background/HBoxContainer/MainPanel
 onready var chapterPanel = $Background/HBoxContainer/ChapterPanel
 onready var levelPanel = $Background/HBoxContainer/LevelPanel
 onready var levelDetailPanel = $Background/HBoxContainer/LevelDetailPanel
-#var levelEditor = preload("res://Level editor/LevelEditor.tscn").instance()
+var levelEditor = preload("res://Level editor/LevelEditor.tscn").instance()
 
 
 
@@ -74,11 +74,11 @@ func _on_MainPanel_leaderboard():
 	Progress.show_leaderboard()
 
 
-#
-#func _on_MainPanel_leveleditor():
-#	for panel in [levelDetailPanel, levelPanel, chapterPanel, mainPanel]:
-#		panel.hide()
-#	var lvledit = ResourceLoader.load("res://Level editor/LevelEditor.tscn").instance()
-#	get_tree().get_root().add_child(lvledit)
-#
-#	pass # Replace with function body.
+
+func _on_MainPanel_leveleditor():
+	for panel in [levelDetailPanel, levelPanel, chapterPanel, mainPanel]:
+		panel.hide()
+	var lvledit = ResourceLoader.load("res://Level editor/LevelEditor.tscn").instance()
+	get_tree().get_root().add_child(lvledit)
+
+	pass # Replace with function body.
