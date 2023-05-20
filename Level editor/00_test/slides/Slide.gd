@@ -2,8 +2,8 @@ extends Control
 
 onready var title=$HBox/Margin/VBox/VBox/Title as Label
 onready var content=$HBox/Margin/VBox/VBox/Content as Label
-var slideCont = ""
-var slideTitle = ""
+export var slideCont:String 
+export var slideTitle:String 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

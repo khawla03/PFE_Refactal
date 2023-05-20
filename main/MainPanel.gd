@@ -5,6 +5,7 @@ signal level_button_toggled(pressed)
 signal new_game()
 signal continue_game()
 signal leaderboard()
+signal leveleditor()
 
 onready var levelButton = find_node("LevelsButton") as Button
 onready var continueButton = find_node("ContinueButton") as Button
@@ -57,3 +58,10 @@ func hide():
 
 func _on_LeaderBoard_button_up():
 	emit_signal("leaderboard")
+
+
+
+func _on_levelEditor_pressed():
+	emit_signal("leveleditor")
+
+	pass # Replace with function body.

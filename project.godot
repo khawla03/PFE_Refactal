@@ -344,7 +344,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Refactal"
+config/name="Refactal test2"
 config/description="Serious game to teach good programming habits"
 run/main_scene="res://main/Main.tscn"
 run/flush_stdout_on_print=true

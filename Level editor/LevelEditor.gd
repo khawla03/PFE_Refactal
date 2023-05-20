@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 
 signal exit_coding()
@@ -26,8 +26,9 @@ var z=-4
 
 
 
-onready var codingGUI := $CodingGUI
+onready var codingGUI := get_node("CodingGUI")
 onready var itemsContainer := $CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/TabContainer/Objects/MarginContainer/VBoxContainer/ScrollContainer/ItemsContainer
+onready var marginContainer := $CodingGUI/MarginContainer
 onready var methodContainer := $CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/TabContainer2/Methods/MarginContainer/ScrollContainer/MethodContainer
 onready var scriptEditor := $CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/VSplitContainer/TabContainer/Code/MarginContainer/Control/ScriptEditor
 onready var pressed=$CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/TabContainer2/Settings/MarginContainer/ScrollContainer/SettingsContainer/ObjectLocked/CheckBox
@@ -46,6 +47,9 @@ onready var syntaxDialog = find_node("SyntaxSheet") as Popup
 onready var ObjectsListDialog = $CodingGUI/ObjectsList
 
 func _ready():
+	print("leveleditor start")
+	codingGUI.hide()
+	marginContainer.show()
 	door.locked=false
 	register_item(door)
 	for item in get_tree().get_nodes_in_group("Programmable"):
@@ -53,7 +57,7 @@ func _ready():
 	
 	objectLockedSettings.hide()
 	
-	codingGUI.hide()
+	
 	#scriptEditor.hide()
 #	Server.connect("connected", self, "_on_parser_connected")
 #	Server.connect("disconnected", self, "_on_parser_disconnected")
@@ -245,3 +249,4 @@ func _on_level_settings_Next_pressed(title, description, sliderTitle,slideConten
 	scene.pack(slide)
 	slider.slide_scenes.append(scene)
 	codingGUI.show()
+	

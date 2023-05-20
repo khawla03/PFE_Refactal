@@ -361,6 +361,7 @@ script = ExtResource( 11 )
 [connection signal="continue_game" from="MainMenu/Background/HBoxContainer/MainPanel" to="LevelLoader" method="_on_MainPanel_continue_game"]
 [connection signal="leaderboard" from="MainMenu/Background/HBoxContainer/MainPanel" to="MainMenu" method="_on_MainPanel_leaderboard"]
 [connection signal="level_button_toggled" from="MainMenu/Background/HBoxContainer/MainPanel" to="MainMenu" method="_on_MainPanel_level_button_toggled"]
+[connection signal="leveleditor" from="MainMenu/Background/HBoxContainer/MainPanel" to="MainMenu" method="_on_MainPanel_leveleditor"]
 [connection signal="new_game" from="MainMenu/Background/HBoxContainer/MainPanel" to="." method="_on_MainPanel_new_game"]
 [connection signal="new_game" from="MainMenu/Background/HBoxContainer/MainPanel" to="MainMenu" method="_on_MainPanel_new_game"]
 [connection signal="new_game" from="MainMenu/Background/HBoxContainer/MainPanel" to="MainMenu/Background/FormPopup" method="hide"]
