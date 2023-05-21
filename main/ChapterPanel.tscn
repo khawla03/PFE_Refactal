@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://main/ChapterPanel.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Montserrat-Bold.ttf" type="DynamicFontData" id=2]
@@ -14,11 +14,12 @@
 [ext_resource path="res://levels/gof/observer/info.tres" type="Resource" id=12]
 [ext_resource path="res://levels/solid/srp/info.tres" type="Resource" id=13]
 [ext_resource path="res://levels/grasp/controller/info.tres" type="Resource" id=14]
-[ext_resource path="res://levels/tests/info.tres" type="Resource" id=15]
+[ext_resource path="res://levels/tutorial/02/info.tres" type="Resource" id=15]
 [ext_resource path="res://levels/gof/Behavior/State/Info.tres" type="Resource" id=16]
 [ext_resource path="res://levels/gof/Creation/Factory/Info.tres" type="Resource" id=17]
 [ext_resource path="res://levels/grasp/Low coupling/info.tres" type="Resource" id=18]
 [ext_resource path="res://levels/gof/structure/facade/info.tres" type="Resource" id=19]
+[ext_resource path="res://levels/solid/OCP/info.tres" type="Resource" id=20]
 
 [sub_resource type="DynamicFont" id=16]
 size = 46
@@ -193,7 +194,7 @@ margin_right = 1872.0
 margin_bottom = 332.0
 title = "SOLID Principles"
 description = "Learn the five SOLID  design principles."
-levels = [ ExtResource( 13 ) ]
+levels = [ ExtResource( 20 ), ExtResource( 13 ) ]
 
 [node name="Grasp" parent="MarginContainer/VBoxContainer/ScrollContainer/Chapters" instance=ExtResource( 3 )]
 margin_top = 364.0

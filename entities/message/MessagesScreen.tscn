@@ -145,16 +145,28 @@ render_target_update_mode = 3
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="name" type="Label" parent="Viewport/VBoxContainer"]
-margin_right = 266.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Viewport/VBoxContainer"]
+margin_right = 226.0
 margin_bottom = 40.0
-text = "From : Station A"
+
+[node name="Des" type="Label" parent="Viewport/VBoxContainer/HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+text = "To"
+align = 1
+valign = 1
+
+[node name="name" type="Label" parent="Viewport/VBoxContainer/HBoxContainer"]
+margin_left = 44.0
+margin_right = 196.0
+margin_bottom = 40.0
+text = "Station A"
 align = 1
 valign = 1
 
 [node name="message" type="Label" parent="Viewport/VBoxContainer"]
 margin_top = 44.0
-margin_right = 266.0
+margin_right = 226.0
 margin_bottom = 84.0
 text = "Hello it's Bazz"
 
