@@ -11,12 +11,6 @@
 	],
 	"variables": [
 		{
-			"id": "1683159621-648",
-			"name": "Bonus",
-			"type": 0,
-			"value": "0"
-		},
-		{
 			"id": "1652974819-787",
 			"name": "station1_name",
 			"type": 0,
@@ -27,6 +21,12 @@
 			"name": "guide_name",
 			"type": 0,
 			"value": "Baz"
+		},
+		{
+			"id": "1683159621-648",
+			"name": "Bonus",
+			"type": 0,
+			"value": "0"
 		}
 	]
 }

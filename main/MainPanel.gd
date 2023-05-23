@@ -59,9 +59,8 @@ func hide():
 func _on_LeaderBoard_button_up():
 	emit_signal("leaderboard")
 
-
-
-func _on_levelEditor_pressed():
-	emit_signal("leveleditor")
-
-	pass # Replace with function body.
+#
+#func _on_levelEditor_pressed():
+#	emit_signal("leveleditor")
+#
+#	pass # Replace with function body.

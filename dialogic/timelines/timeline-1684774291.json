@@ -1,0 +1,41 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "This class uses screens to find the password\nWe want to make it open for extention but closed for changements"
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Which means, it shoud be more general and we can use it no matter how many screens do we have."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1684774291.json",
+		"name": "OCP_1"
+	}
+}

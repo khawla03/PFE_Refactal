@@ -96,6 +96,7 @@ func _reset_items_highlight():
 func _on_ApplyButton_pressed():
 	stop_coding()
 	emit_signal("exit_coding")
+	ActionsData.save_action("Aplly pressed","Exit Coding")
 	for item_ui in itemsContainer.get_children():
 		if not item_ui.item.locked:
 			item_ui.item.apply_code()

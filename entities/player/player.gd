@@ -114,8 +114,10 @@ func _unhandled_input(event):
 		if menu.visible:
 			menu.hide()
 			emit_signal("resumed", self)
+			ActionsData.save_action('Level resumed','')
 		elif is_interacting:
 			emit_signal("exit_coding", self)
+			ActionsData.save_action('Exit Coding','')
 		else:
 			menu.show()
 			focus_mode(true)

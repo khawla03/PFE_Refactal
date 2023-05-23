@@ -27,7 +27,7 @@
 		{
 			"custom_slot": "",
 			"event_id": "dialogic_026",
-			"use_default_slot": true
+			"use_default_slot": false
 		},
 		{
 			"character": "",
@@ -51,9 +51,11 @@
 			"set_value": "100"
 		},
 		{
-			"custom_slot": "",
-			"event_id": "dialogic_026",
-			"use_default_slot": true
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "Bonus",
+			"event_id": "dialogic_040"
 		}
 	],
 	"metadata": {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://main/MainPanel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://main/ChapterPanel.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://main/Main.gd" type="Script" id=12]
 [ext_resource path="res://main/Intro.tscn" type="PackedScene" id=13]
 [ext_resource path="res://entities/ui/FormPopup.tscn" type="PackedScene" id=14]
+[ext_resource path="res://main/PlayerName.tscn" type="PackedScene" id=15]
 
 [sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -316,6 +317,9 @@ margin_bottom = 1080.0
 margin_top = -394.0
 margin_bottom = -156.0
 delay = 1.0
+
+[node name="PlayerNamePage" parent="MainMenu" instance=ExtResource( 15 )]
+visible = false
 
 [node name="LevelLoader" type="Node" parent="."]
 script = ExtResource( 5 )

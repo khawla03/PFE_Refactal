@@ -34,11 +34,15 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Are you stuck? click on \"H\" Button to see hints"
+		},
+		{
+			"emit_signal": "",
+			"event_id": "dialogic_040"
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.4.1",
 		"file": "timeline-1678871944.json",
-		"name": "Hints_time"
+		"name": "Hints"
 	}
 }

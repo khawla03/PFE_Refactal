@@ -5,6 +5,9 @@ extends Node
 const FILE_PATH = 'user://actionsdata.json'
 
 var actions: Array = []
+var player_data : Dictionary = {
+	'data':[]
+}
 var dirty: bool = false
 #var timer: Timer = Timer.new()
 
@@ -20,10 +23,11 @@ func _ready():
 
 func save_action(action_type: String, action_data=''):
 	var action : Dictionary = {
-		'time':[ActionsData.get_time()],
-		'action': [action_type],
-		'data': [action_data],
+		'action': action_type,
+		'info': action_data,
+		'time':ActionsData.get_time(),
 	};
+	player_data = {'data':[action]}
 	#Vars.store("player_name", player_name)
 	actions.append(action)
 	dirty = true
@@ -31,7 +35,7 @@ func save_action(action_type: String, action_data=''):
 	print(action_type) 
 	print(action_data)
 	save()
-	SilentWolf.Players.post_player_data("khawla", action, false)
+	SilentWolf.Players.post_player_data(Vars.get_var("player_name"), player_data, false)
 	
 
 func save():

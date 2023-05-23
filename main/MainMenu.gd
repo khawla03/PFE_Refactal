@@ -6,9 +6,15 @@ onready var mainPanel = $Background/HBoxContainer/MainPanel
 onready var chapterPanel = $Background/HBoxContainer/ChapterPanel
 onready var levelPanel = $Background/HBoxContainer/LevelPanel
 onready var levelDetailPanel = $Background/HBoxContainer/LevelDetailPanel
+onready var playerNamePage=$PlayerNamePage
+
 #var levelEditor = preload("res://Level editor/LevelEditor.tscn").instance()
+#
+func _ready():
+	ActionsData.save_action('GameStarted',"Number of levels passed: "+str(Progress.levels_progress.size()))
+	
 
-
+#Vars.clear_vars()
 
 func _on_MainPanel_level_button_toggled(pressed: bool):
 	if pressed:
@@ -62,6 +68,8 @@ func _on_LevelLoader_return_to_menu():
 
 
 func _on_Intro_intro_finished():
+	if Vars.get_var("player_name")==null:
+		playerNamePage.show()
 	mainPanel.show()
 
 

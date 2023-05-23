@@ -25,6 +25,8 @@ onready var codingGUI := CodeGUI.instance()
 onready var music := MusicScene.instance()
 onready var levelTimer := LevelTimerScrene.instance()
 var lines_init=0
+var bonus = 0
+
 
 func _init():
 	add_to_group("Level")
@@ -102,11 +104,12 @@ func _on_slider_hidden():
 func return_to_menu():
 	music.stop_music()
 	get_parent().free_level()
-
+	ActionsData.save_action('Go to main menu','returned to main menu from '+level_info.title)
 
 func restart():
 	music.stop_music()
 	get_parent().restart_level()
+	ActionsData.save_action('Level restarted',level_info.title)
 
 
 func next_level():
@@ -115,7 +118,7 @@ func next_level():
 
 
 func end_level(player):
-	ActionsData.save_action('Level passed',level_info.title)
+	
 	levelTimer.stop()
 	levelTimer.hide()
 	player.focus_mode(true)
@@ -124,9 +127,13 @@ func end_level(player):
 	var metrics = get_metrics()
 	var score = Score.calc_score(
 		metrics["lines"],
+		metrics["cyc"],
 		metrics["minutes"],
 		metrics["seconds"]
-	)
+	) + float(bonus)
+	print(Score.calc_score(metrics["lines"],metrics["cyc"],metrics["minutes"],metrics["seconds"]) )
+	print(bonus)
+	ActionsData.save_action('Level passed',"Score:" + str(score))
 	complete.score = score
 	complete.metrics = metrics
 	complete.connect("return_to_menu", self, "return_to_menu")
@@ -180,10 +187,12 @@ func _on_game_resumed(player):
 			get_node(slider).show()
 			return
 	player.focus_mode(false)
+	ActionsData.save_action('Level resumed',level_info.title)
 
 
 func _on_discover_mode(enabled):
 	if enabled:
+		ActionsData.save_action('Discover mode entered',level_info.title)
 		get_node(map).set_discover_mode(true)
 		for mesh in get_tree().get_nodes_in_group("ItemMesh"):
 			for index in mesh.get_surface_material_count():

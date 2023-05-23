@@ -362,6 +362,7 @@ Constraints="*res://globals/constaints/Constraints.tscn"
 Progress="*res://globals/progress/Progress.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 ActionsData="*res://globals/PlayerData/ActionsData.gd"
+DialogicClass="*res://addons/dialogic/Other/DialogicClass.gd"
 
 [display]
 

@@ -25,8 +25,8 @@ func _ready():
 			"started_coding", 
 			get_tree().get_nodes_in_group("Level")[0], 
 			"_on_started_coding")
+		ActionsData.save_action("Computer pressed","Coding Started")
 
 
 func interact(player):
-	ActionsData.save_action('Computer pressed')
 	emit_signal("started_coding", player)

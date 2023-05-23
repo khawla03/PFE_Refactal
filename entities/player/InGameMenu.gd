@@ -38,6 +38,7 @@ func _on_QuitButton_pressed():
 		funcref(get_tree(), "quit"),
 		menu
 	)
+	ActionsData.save_action('Level quitted','Game quitted')
 
 
 func _on_ResumeButton_pressed():
@@ -52,6 +53,7 @@ func _on_ReturnButton_pressed():
 		menu,
 		true
 	)
+	ActionsData.save_action('Level quitted','Returned to main menu')
 
 
 func _on_RestartButton_pressed():

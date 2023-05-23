@@ -32,7 +32,7 @@
 			"character": "character-1652920922.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "This main class contains all methods, we need to take each methode to its expert class"
+			"text": "This main class contains all methods, we need to take each methode to its expert class\nChoose carefully ! "
 		}
 	],
 	"metadata": {
