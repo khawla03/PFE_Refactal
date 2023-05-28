@@ -13,8 +13,7 @@ onready var playerNamePage=$PlayerNamePage
 func _ready():
 	ActionsData.save_action('GameStarted',"Number of levels passed: "+str(Progress.levels_progress.size()))
 	
-
-#Vars.clear_vars()
+	Vars.clear_vars()
 
 func _on_MainPanel_level_button_toggled(pressed: bool):
 	if pressed:

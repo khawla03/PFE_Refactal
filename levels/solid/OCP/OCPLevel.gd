@@ -62,6 +62,7 @@ func _on_Door_opened():
 	computer.is_interactable = false
 	timer.stop()
 	button.disconnect("pressed",self,"_on_Button_pressed")
+	DialogicUtils.start_dialog(self, "OCP_2", "_on_dialogic_signal")
 
 
 func _on_item_pressed(item_name):

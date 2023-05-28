@@ -1,0 +1,83 @@
+{
+	"events": [
+		{
+			"definition": "1683159621-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "0"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Which of the following is a benefit of applying the Single Responsibility Principle (SRP)?"
+		},
+		{
+			"choice": "Improved code organization and easier maintenance.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"definition": "1683159621-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "100"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good job! you got +100 points!"
+		},
+		{
+			"choice": "Make the class open for extention",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"definition": "1683159621-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "-50"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oops, wrong answer :("
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "Bonus",
+			"event_id": "dialogic_040"
+		},
+		{
+			"definition": "1683159621-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "0"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1685289739.json",
+		"name": "SRP_1"
+	}
+}

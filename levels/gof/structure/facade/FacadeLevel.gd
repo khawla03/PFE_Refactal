@@ -40,6 +40,6 @@ func _on_Door_opened():
 
 
 func _on_item_pressed(item_name):
-	if item_name == "Main":
-		DialogicUtils.start_dialog(self, "Expert_1")
+	if item_name == "Facade":
+		DialogicUtils.start_dialog(self, "Facade_1")
 		codingGUI.disconnect("item_pressed", self, "_on_item_pressed")

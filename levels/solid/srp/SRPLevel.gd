@@ -51,6 +51,7 @@ func _on_PasswordChecker_timeout():
 func _on_Door_opened():
 	computer.is_interactable = false
 	timer.stop()
+	DialogicUtils.start_dialog(self, "SRP_1", "_on_dialogic_signal")
 
 
 func _on_item_pressed(item_name):

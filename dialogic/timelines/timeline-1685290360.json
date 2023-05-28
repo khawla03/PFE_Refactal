@@ -1,0 +1,83 @@
+{
+	"events": [
+		{
+			"definition": "1683159621-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "0"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "According to the OCP, when new functionality is needed, it should be achieved by:"
+		},
+		{
+			"choice": "Modifying the existing code to accommodate the changes.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"definition": "1683159621-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "-50"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oops, wrong answer"
+		},
+		{
+			"choice": "Extending the existing code without modifying its implementation.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"definition": "1683159621-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "100"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good job! you got +100 points!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "Bonus",
+			"event_id": "dialogic_040"
+		},
+		{
+			"definition": "1683159621-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "0"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1685290360.json",
+		"name": "OCP_2"
+	}
+}

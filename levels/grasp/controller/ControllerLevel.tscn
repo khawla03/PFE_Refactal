@@ -206,6 +206,9 @@ autostart = true
 wait_time = 0.5
 one_shot = true
 
+[node name="HintsTimer" type="Timer" parent="."]
+wait_time = 300.0
+
 [connection signal="opened" from="Item/Door" to="." method="_on_Door_opened"]
 [connection signal="interact" from="Item/DoorSingle" to="." method="_on_DoorSingle_interact"]
 [connection signal="timeout" from="ExpressionChanger" to="." method="_on_ExpressionChanger_timeout"]

@@ -29,51 +29,29 @@ custom_constants/margin_bottom = 100
 margin_left = 100.0
 margin_top = 100.0
 margin_right = 1820.0
-margin_bottom = 980.0
+margin_bottom = 1005.0
 custom_constants/separation = 100
 alignment = 1
 
 [node name="Label" type="Label" parent="Margin/VBoxContainer"]
-margin_top = 117.0
 margin_right = 1720.0
-margin_bottom = 162.0
+margin_bottom = 45.0
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 2 )
 text = "Welcome to Refactal!"
 align = 1
 
 [node name="Label2" type="Label" parent="Margin/VBoxContainer"]
-margin_top = 262.0
+margin_top = 145.0
 margin_right = 1720.0
-margin_bottom = 302.0
+margin_bottom = 185.0
 text = "We wish you a good experience"
 align = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Margin/VBoxContainer"]
-visible = false
-margin_top = 300.0
-margin_right = 1720.0
-margin_bottom = 405.0
-custom_constants/separation = 20
-
-[node name="Label" type="Label" parent="Margin/VBoxContainer/VBoxContainer"]
-margin_right = 1720.0
-margin_bottom = 40.0
-text = "Total score"
-align = 1
-
-[node name="Score" type="Label" parent="Margin/VBoxContainer/VBoxContainer"]
-margin_top = 60.0
-margin_right = 1720.0
-margin_bottom = 105.0
-custom_fonts/font = ExtResource( 2 )
-text = "9999"
-align = 1
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="Margin/VBoxContainer"]
-margin_top = 402.0
+margin_top = 285.0
 margin_right = 1720.0
-margin_bottom = 562.0
+margin_bottom = 445.0
 custom_constants/separation = 20
 
 [node name="Label" type="Label" parent="Margin/VBoxContainer/VBoxContainer2"]
@@ -95,11 +73,36 @@ placeholder_text = "Please enter a name"
 caret_blink = true
 caret_blink_speed = 0.5
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="Margin/VBoxContainer"]
+margin_top = 545.0
+margin_right = 1720.0
+margin_bottom = 705.0
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="Margin/VBoxContainer/VBoxContainer3"]
+margin_right = 1720.0
+margin_bottom = 40.0
+text = "Please enter your Email"
+align = 1
+
+[node name="MailEdit" type="LineEdit" parent="Margin/VBoxContainer/VBoxContainer3"]
+margin_left = 610.0
+margin_top = 60.0
+margin_right = 1110.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 500, 100 )
+size_flags_horizontal = 4
+align = 1
+max_length = 40
+placeholder_text = "Enter your email"
+caret_blink = true
+caret_blink_speed = 0.5
+
 [node name="Submit" type="Button" parent="Margin/VBoxContainer"]
 margin_left = 710.0
-margin_top = 662.0
+margin_top = 805.0
 margin_right = 1010.0
-margin_bottom = 762.0
+margin_bottom = 905.0
 rect_min_size = Vector2( 300, 100 )
 mouse_default_cursor_shape = 2
 size_flags_horizontal = 4
@@ -107,4 +110,5 @@ disabled = true
 text = "Submit"
 
 [connection signal="text_changed" from="Margin/VBoxContainer/VBoxContainer2/NameEdit" to="." method="_on_NameEdit_text_changed"]
+[connection signal="text_changed" from="Margin/VBoxContainer/VBoxContainer3/MailEdit" to="." method="_on_MailEdit_text_changed"]
 [connection signal="button_up" from="Margin/VBoxContainer/Submit" to="." method="_on_Submit_button_up"]

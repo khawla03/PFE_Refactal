@@ -32,7 +32,7 @@ func save_action(action_type: String, action_data=''):
 	actions.append(action)
 	dirty = true
 	save()
-	SilentWolf.Players.post_player_data(Vars.get_var("player_name"), player_data, false)
+	SilentWolf.Players.post_player_data(Vars.get_var("player_mail"), player_data, false)
 	
 
 func save():

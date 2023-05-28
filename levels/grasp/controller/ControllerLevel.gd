@@ -51,6 +51,7 @@ func _on_PasswordChecker_timeout():
 func _on_Door_opened():
 	computer.is_interactable = false
 	timer.stop()
+	DialogicUtils.start_dialog(self, "controller_1", "_on_dialogic_signal")
 
 
 func _on_item_pressed(item_name):
@@ -58,12 +59,4 @@ func _on_item_pressed(item_name):
 		DialogicUtils.start_dialog(self, "controller_0")
 		codingGUI.disconnect("item_pressed", self, "_on_item_pressed")
 
-func _on_dialogic_signal(arg):
-	PlayerUtils.set_player_focus(get_tree(), false)
-	bonus = DialogicClass.get_variable("Bonus")
-	if bonus=="100":
-		ActionsData.save_action('True answer on the quizz',level_info.title)
-	elif bonus == "-50":
-		ActionsData.save_action('False answer on the quizz',level_info.title)
-	
 
