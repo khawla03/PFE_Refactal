@@ -32,7 +32,7 @@
 			"character": "character-1652920922.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "The result of the expression on the top screen is the Password of the door.\nWe need to calculate it and show it on that squared screen."
+			"text": "The result of the expression on the top screen is the Password of the door. We need to calculate it and show it on that squared screen."
 		},
 		{
 			"emit_signal": "",

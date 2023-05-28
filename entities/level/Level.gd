@@ -41,6 +41,7 @@ func queue_free():
 
 func _ready():
 	var metrics = get_metrics()
+	codingGUI.connect("item_pressed", self, "_on_item_pressed")
 #	if not type_exists("GDScriptParserWrap"):
 #		Server.connect_client()
 	if level_info!= null:
@@ -206,3 +207,19 @@ func _on_discover_mode(enabled):
 func _on_Hint(player):
 	if get_node(hints):
 		get_node(hints).show()
+
+
+func _on_dialogic_signal(arg):
+	PlayerUtils.set_player_focus(get_tree(), false)
+	bonus = DialogicClass.get_variable("Bonus")
+	if bonus=="100":
+		ActionsData.save_action('True answer on the quizz',level_info.title)
+	elif bonus == "-50":
+		ActionsData.save_action('False answer on the quizz',level_info.title)
+	print("inside Level.gd func")
+	print (bonus)
+
+
+func _on_HintsTimer_timeout():
+	DialogicUtils.start_dialog(self, "Hints", "_on_dialogic_signal")
+	pass # Replace with function body.

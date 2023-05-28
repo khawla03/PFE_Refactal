@@ -42,9 +42,14 @@ func _on_Slider_hidden():
 	pass # Replace with function body.
 
 func _on_dialogic_signal(Bonus):
+
 	PlayerUtils.set_player_focus(get_tree(), false)
 	bonus = DialogicClass.get_variable("Bonus")
-	print(bonus)
+	if bonus=="100":
+		ActionsData.save_action('True answer on the quizz',level_info.title)
+	elif bonus == "-50":
+		ActionsData.save_action('False answer on the quizz',level_info.title)
+	
 
 
 func _on_Timer_timeout():
@@ -66,3 +71,4 @@ func _on_Door_opened():
 	computer.is_interactable = false
 	DialogicUtils.start_dialog(self, "State_2", "_on_dialogic_signal")
 	timer.stop()
+

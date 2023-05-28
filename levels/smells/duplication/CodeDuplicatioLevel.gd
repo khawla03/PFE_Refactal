@@ -143,6 +143,12 @@ func _on_Button3_pressed():
 
 func _on_dialogic_signal(arg):
 	PlayerUtils.set_player_focus(get_tree(), false)
+	bonus = DialogicClass.get_variable("Bonus")
+	if bonus=="100":
+		ActionsData.save_action('True answer on the quizz',level_info.title)
+	elif bonus == "-50":
+		ActionsData.save_action('False answer on the quizz',level_info.title)
+	
 
 
 func _on_applied():
@@ -155,3 +161,5 @@ func _on_applied():
 func _on_Computer_started_coding(player):
 	DialogicUtils.start_dialog(self, "dup_1")
 	computer.disconnect("started_coding", self, "_on_Computer_started_coding")
+
+

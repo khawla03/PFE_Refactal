@@ -65,6 +65,14 @@
 		{
 			"emit_signal": "Bonus",
 			"event_id": "dialogic_040"
+		},
+		{
+			"definition": "1683159621-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "0"
 		}
 	],
 	"metadata": {

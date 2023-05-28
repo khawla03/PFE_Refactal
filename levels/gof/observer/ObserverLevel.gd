@@ -48,6 +48,7 @@ func _on_DoorSingle_interact(door, player):
 
 func _on_Door_opened():
 	computer.is_interactable = false
+	DialogicUtils.start_dialog(self, "Observer_2", "_on_dialogic_signal")
 
 
 func _on_player_look_at_item(item_name: String):
