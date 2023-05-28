@@ -61,3 +61,8 @@ func _on_item_pressed(item_name):
 func _on_HintTimer_timeout():
 	DialogicUtils.start_dialog(self, "Hints", "_on_dialogic_signal")
 	pass # Replace with function body.
+
+func _on_Door_opened():
+	computer.is_interactable = false
+	DialogicUtils.start_dialog(self, "State_2", "_on_dialogic_signal")
+	timer.stop()

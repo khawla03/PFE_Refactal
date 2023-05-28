@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/LowCoupling.ogg-8ca5046d9792ec793b8f01a69ba20dbe.oggstr"
+
+[deps]
+
+source_file="res://levels/grasp/Low coupling/Story/LowCoupling.ogg"
+dest_files=[ "res://.import/LowCoupling.ogg-8ca5046d9792ec793b8f01a69ba20dbe.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

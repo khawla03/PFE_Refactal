@@ -79,10 +79,38 @@
 
 					],
 					"folders": {
+						"Facade": {
+							"files": [
+								"timeline-1684971546.json",
+								"timeline-1684971622.json",
+								"timeline-1684976905.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						},
+						"Factory": {
+							"files": [
+								"timeline-1684971894.json",
+								"timeline-1684975838.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						},
 						"State": {
 							"files": [
 								"timeline-1684777453.json",
-								"timeline-1684778060.json"
+								"timeline-1684778060.json",
+								"timeline-1684976548.json"
 							],
 							"folders": {
 
@@ -94,7 +122,8 @@
 						},
 						"observer": {
 							"files": [
-								"timeline-1659373682.json"
+								"timeline-1659373682.json",
+								"timeline-1684977372.json"
 							],
 							"folders": {
 
@@ -120,6 +149,18 @@
 								"timeline-1683159034.json",
 								"timeline-1683159211.json",
 								"timeline-1683159411.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						},
+						"LowCoupling": {
+							"files": [
+								"timeline-1684974443.json"
 							],
 							"folders": {
 
@@ -174,13 +215,13 @@
 							},
 							"metadata": {
 								"color": null,
-								"folded": false
+								"folded": true
 							}
 						}
 					},
 					"metadata": {
 						"color": null,
-						"folded": true
+						"folded": false
 					}
 				},
 				"Solid": {
@@ -198,7 +239,7 @@
 							},
 							"metadata": {
 								"color": null,
-								"folded": true
+								"folded": false
 							}
 						},
 						"SRP": {
@@ -210,13 +251,13 @@
 							},
 							"metadata": {
 								"color": null,
-								"folded": true
+								"folded": false
 							}
 						}
 					},
 					"metadata": {
 						"color": null,
-						"folded": true
+						"folded": false
 					}
 				},
 				"Tuto": {

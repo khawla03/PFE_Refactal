@@ -131,8 +131,6 @@ func end_level(player):
 		metrics["minutes"],
 		metrics["seconds"]
 	) + float(bonus)
-	print(Score.calc_score(metrics["lines"],metrics["cyc"],metrics["minutes"],metrics["seconds"]) )
-	print(bonus)
 	ActionsData.save_action('Level passed',"Score:" + str(score))
 	complete.score = score
 	complete.metrics = metrics

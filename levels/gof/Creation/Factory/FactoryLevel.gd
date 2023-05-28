@@ -11,6 +11,7 @@ onready var door2 = find_node("DoorSingle2") as DoorItem
 onready var timer = $ExpressionChanger
 onready var checkerTimer = $PasswordChecker
 onready var computer = find_node("Computer") as Computer
+onready var button = $Programmable/Button
 var pw_digits
 
 func _ready():
@@ -53,3 +54,20 @@ func _on_PasswordChecker_timeout():
 
 func _on_DoorSingle2_interact(door, player):
 	end_level(player)
+
+var nbPress=0
+func _on_Button_pressed():
+	nbPress=nbPress+1
+	ActionsData.save_action('Button Pressed',"number of tests :" + str(nbPress))
+	if nbPress > 4:
+		if door.is_open == false:
+			DialogicUtils.start_dialog(self, "Hints", "_on_dialogic_signal")
+			button.disconnect("pressed",self,"_on_Button_pressed")
+
+	pass # Replace with function body.
+
+
+func _on_Door_opened():
+	button.disconnect("pressed",self,"_on_Button_pressed")
+	computer.is_interactable = false
+	pass # Replace with function body.

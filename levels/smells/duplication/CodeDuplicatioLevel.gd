@@ -20,7 +20,10 @@ onready var screenResult2 = $Items/Result2
 onready var screenOp3 = $Items/OP3
 onready var screenResult3 = $Items/Result3
 onready var lights = $Items/Lights
-onready var door = $Items/Door
+onready var door = $Items/Door 
+onready var button1=$Items/Button1
+onready var button2=$Items/Button2
+onready var button3=$Items/Button3
 onready var computer = find_node("Computer") as Computer
 
 
@@ -98,21 +101,44 @@ func _on_DoorSingle_interact(door, player):
 
 func _on_Door_opened():
 	computer.is_interactable = false
+	
 
-
+var nbPress=0
+var nbPress1=0
 func _on_Button1_pressed():
-	if not Constraints.all_passed:
+	if not Constraints.all_passed and nbPress<2:
 		DialogicUtils.start_dialog(self, "dup_loop_0", "_on_dialogic_signal")
+	nbPress1=nbPress1+1
+	nbPress=nbPress1+nbPress2+nbPress3
+	ActionsData.save_action('Button 1 Pressed',"number of tests :" + str(nbPress1))
+	if (nbPress1 > 4 or nbPress>6) and not Constraints.all_passed:
+		if door.is_open == false:
+			DialogicUtils.start_dialog(self, "Hints", "_on_dialogic_signal")
+			button1.disconnect("pressed",self,"_on_Button_pressed")
 
-
+var nbPress2=0
 func _on_Button2_pressed():
-	if not Constraints.all_passed:
+	if not Constraints.all_passed and nbPress<2:
 		DialogicUtils.start_dialog(self, "dup_loop_0", "_on_dialogic_signal")
+	nbPress2=nbPress2+1
+	nbPress=nbPress1+nbPress2+nbPress3
+	ActionsData.save_action('Button 2 Pressed',"number of tests :" + str(nbPress2))
+	if (nbPress2 > 4 or nbPress>6) and not Constraints.all_passed:
+		if door.is_open == false:
+			DialogicUtils.start_dialog(self, "Hints", "_on_dialogic_signal")
+			button1.disconnect("pressed",self,"_on_Button_pressed")
 
-
+var nbPress3=0
 func _on_Button3_pressed():
-	if not Constraints.all_passed:
+	if not Constraints.all_passed and nbPress<2:
 		DialogicUtils.start_dialog(self, "dup_loop_0", "_on_dialogic_signal")
+	nbPress3=nbPress3+1
+	nbPress=nbPress1+nbPress2+nbPress3
+	ActionsData.save_action('Button 3 Pressed',"number of tests :" + str(nbPress3))
+	if (nbPress3 > 4 or nbPress>6) and not Constraints.all_passed :
+		if door.is_open == false:
+			DialogicUtils.start_dialog(self, "Hints", "_on_dialogic_signal")
+			button1.disconnect("pressed",self,"_on_Button_pressed")
 
 
 func _on_dialogic_signal(arg):

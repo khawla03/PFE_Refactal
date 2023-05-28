@@ -13,6 +13,7 @@ onready var door = find_node("Door") as DoorItem
 onready var doorsingle = find_node("DoorSingle") as DoorItem
 
 onready var timer = $ExpressionChanger
+onready var button = $Button
 onready var checkerTimer = $PasswordChecker
 onready var computer = find_node("Computer") as Computer
 var password=""
@@ -60,6 +61,7 @@ func _on_ExpressionChanger_timeout():
 func _on_Door_opened():
 	computer.is_interactable = false
 	timer.stop()
+	button.disconnect("pressed",self,"_on_Button_pressed")
 
 
 func _on_item_pressed(item_name):
@@ -83,3 +85,25 @@ func _on_player_look_at_item(item_name: String):
 func _on_HintTimer_timeout():
 	DialogicUtils.start_dialog(self, "Hints", "_on_dialogic_signal")
 	pass # Replace with function body.
+
+
+var nbPress=0
+
+func _on_Button_pressed():
+	nbPress=nbPress+1
+	ActionsData.save_action('Button Pressed',"number of tests :" + str(nbPress))
+	if nbPress > 4:
+		if door.is_open == false:
+			DialogicUtils.start_dialog(self, "Hints", "_on_dialogic_signal")
+			button.disconnect("pressed",self,"_on_Button_pressed")
+	pass # Replace with function body.
+
+#
+#func wait(s):
+#	var t = Timer.new()
+#	t.set_wait_time(s)
+#	t.set_one_shot(true)
+#	self.add_child(t)
+#	t.start()
+#	yield(t, "timeout")
+#	t.queue_free()

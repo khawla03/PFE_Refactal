@@ -31,9 +31,6 @@ func save_action(action_type: String, action_data=''):
 	#Vars.store("player_name", player_name)
 	actions.append(action)
 	dirty = true
-	print(ActionsData.get_time()) 
-	print(action_type) 
-	print(action_data)
 	save()
 	SilentWolf.Players.post_player_data(Vars.get_var("player_name"), player_data, false)
 	
@@ -42,13 +39,10 @@ func save():
 	# if we haven't logged any new actions, don't save data
 	if not dirty:
 		return
-
 	var file = File.new()
 	file.open(FILE_PATH, File.WRITE)
 	file.store_string(to_json(actions))
 	file.close()
-	
-
 	dirty = false
 
 func load_data():

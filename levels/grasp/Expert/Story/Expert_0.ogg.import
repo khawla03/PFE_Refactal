@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Expert_0.ogg-99f38cd7e437704cb17e91d314355a68.oggstr"
+
+[deps]
+
+source_file="res://levels/grasp/Expert/Story/Expert_0.ogg"
+dest_files=[ "res://.import/Expert_0.ogg-99f38cd7e437704cb17e91d314355a68.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Facade_1.ogg-d1642b97de756bd9fbcb1091cd8b8ebc.oggstr"
+
+[deps]
+
+source_file="res://levels/gof/structure/facade/Story/Facade_1.ogg"
+dest_files=[ "res://.import/Facade_1.ogg-d1642b97de756bd9fbcb1091cd8b8ebc.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -30,11 +30,15 @@ onready var cnxStatus = $CodingGUI/MarginContainer/VBoxContainer/MarginContainer
 onready var syntaxDialog = find_node("SyntaxSheet") as Popup
 
 
+onready var flowWindow = $CodingGUI/ControlFlow
+
+
 func _ready():
 	for item in get_tree().get_nodes_in_group("Programmable"):
 		register_item(item)
 	codingGUI.hide()
 	scriptEditor.hide()
+	
 #	Server.connect("connected", self, "_on_parser_connected")
 #	Server.connect("disconnected", self, "_on_parser_disconnected")
 	_on_ApplyButton_pressed()
@@ -76,6 +80,7 @@ func _update_methods_ui():
 
 
 func _on_item_pressed(itemElement):
+	
 	scriptEditor.load_item(itemElement.item)
 	selected_item = itemElement
 	_reset_items_highlight()
@@ -103,6 +108,7 @@ func _on_ApplyButton_pressed():
 
 
 func _on_NewObjectButton_pressed():
+	#flowWindow.show()
 	dialogBg.show()
 	newObjectName.clear()
 	newObjectDescription.text = ""
@@ -159,3 +165,15 @@ func _on_parser_disconnected():
 func _on_ScriptEditor_help_syntax():
 	dialogBg.show()
 	syntaxDialog.popup_centered()
+	
+
+
+
+#_____________________________khawla's part__________________________________
+# scriptEditor.current_item.staged_srouce_code
+
+func draw_control_flow():
+	var code = scriptEditor.current_item.staged_srouce_code
+	
+	#draw_line(Vector2(1.5, 1.0), Vector2(1.5, 4.0), Color.GREEN, 1.0)
+

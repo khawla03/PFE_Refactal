@@ -73,9 +73,9 @@ func _on_item_pressed(item_name):
 func _on_dialogic_signal(arg):
 	PlayerUtils.set_player_focus(get_tree(), false)
 	bonus = DialogicClass.get_variable("Bonus")
-	if bonus==100:
+	if bonus=="100":
 		ActionsData.save_action('True answer on the quizz',level_info.title)
-	elif bonus == -50:
+	elif bonus == "-50":
 		ActionsData.save_action('False answer on the quizz',level_info.title)
 	
 	print(bonus)

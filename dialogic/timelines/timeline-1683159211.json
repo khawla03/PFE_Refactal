@@ -25,7 +25,7 @@
 			"audio_bus": "Master",
 			"event_id": "dialogic_030",
 			"event_name": "AudioEvent",
-			"file": "",
+			"file": "res://levels/grasp/Expert/Story/Expert_1.ogg",
 			"volume": 0
 		},
 		{
