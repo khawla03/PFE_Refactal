@@ -8,6 +8,7 @@ onready var speechTrigger = find_node("SpeechTrigger") as Area
 
 func _ready():
 	DialogicUtils.start_dialog(self, "ControlsTuto", "_on_dialog_finished")
+	PlayerUtils.get_player(get_tree()).connect("look_at_item", self, "_on_player_look_at_item")
 
 
 func _on_Button_pressed():
@@ -29,3 +30,11 @@ func _on_SpeechTrigger_body_entered(body):
 	if body.is_in_group("Player"):
 		speechTrigger.queue_free()
 		DialogicUtils.start_dialog(self, "ControlsTuto1", "_on_dialog_finished")
+
+
+func _on_player_look_at_item(item_name: String):
+	if item_name == "Exit Door":
+		DialogicUtils.start_dialog(self, "Tuto_fin", "_on_dialogic_signal")
+		PlayerUtils.get_player(get_tree()).disconnect("look_at_item", self, "_on_player_look_at_item")
+
+

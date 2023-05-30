@@ -87,9 +87,6 @@ custom_constants/margin_right = 16
 custom_constants/margin_top = 16
 custom_constants/margin_left = 16
 custom_constants/margin_bottom = 16
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CodingGUI/MarginContainer"]
 margin_left = 16.0
@@ -279,9 +276,6 @@ anchor_bottom = 1.0
 text = "Click on an object to open its code"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ScriptEditor" type="VBoxContainer" parent="CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/TabContainer/Code/MarginContainer/Control"]
 anchor_right = 1.0
@@ -386,8 +380,34 @@ rect_min_size = Vector2( 32, 32 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/TabContainer/Code/MarginContainer/Control/ScriptEditor/Parser/HBox/Loading"]
 frames = SubResource( 18 )
+frame = 1
 playing = true
 centered = false
+
+[node name="Flow control" type="Tabs" parent="CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 39.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/TabContainer/Flow control"]
+margin_right = 1520.0
+margin_bottom = 1101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/TabContainer/Flow control/ScrollContainer"]
+margin_right = 1520.0
+margin_bottom = 1101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/TabContainer/Flow control/ScrollContainer/VBoxContainer"]
+margin_right = 1520.0
+margin_bottom = 1101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 15 )
 
 [node name="DialogBg" type="ColorRect" parent="CodingGUI"]
 visible = false
@@ -455,7 +475,6 @@ theme = ExtResource( 8 )
 text = "Create"
 
 [node name="ControlFlow" type="WindowDialog" parent="CodingGUI"]
-visible = true
 margin_right = 631.0
 margin_bottom = 893.0
 window_title = "Control Flow"

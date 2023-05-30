@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/OCP_1.mp3-bbdb337e38c605e1297212a1edfe30f1.mp3str"
+
+[deps]
+
+source_file="res://levels/solid/OCP/story/OCP_1.mp3"
+dest_files=[ "res://.import/OCP_1.mp3-bbdb337e38c605e1297212a1edfe30f1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

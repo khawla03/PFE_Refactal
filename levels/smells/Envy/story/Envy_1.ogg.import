@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Envy_1.ogg-811a3fc3283eb944e6a3fe46b7485404.oggstr"
+
+[deps]
+
+source_file="res://levels/smells/Envy/story/Envy_1.ogg"
+dest_files=[ "res://.import/Envy_1.ogg-811a3fc3283eb944e6a3fe46b7485404.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

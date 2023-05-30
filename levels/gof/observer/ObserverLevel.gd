@@ -56,6 +56,6 @@ func _on_player_look_at_item(item_name: String):
 		DialogicUtils.start_dialog(self, "observer_0", "_on_dialogic_signal")
 		PlayerUtils.get_player(get_tree()).disconnect("look_at_item", self, "_on_player_look_at_item")
 
-
-func _on_dialogic_signal(arg):
-	PlayerUtils.set_player_focus(get_tree(), false)
+#
+#func _on_dialogic_signal(arg):
+#	PlayerUtils.set_player_focus(get_tree(), false)

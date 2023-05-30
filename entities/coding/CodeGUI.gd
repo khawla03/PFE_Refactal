@@ -174,6 +174,37 @@ func _on_ScriptEditor_help_syntax():
 
 func draw_control_flow():
 	var code = scriptEditor.current_item.staged_srouce_code
+	var line_counted = false
+	var comment_line =""
+	var current_line=""
 	
+	var tab=0
+	var count = 0 
+	var i=0
+	var c
+	while i < code.length():
+		
+		if code[i]!="	":
+			c = code[i]
+			if c != "\n":
+				tab=0
+				current_line=current_line+code[i]
+			else:
+				if current_line.begins_with("if ") or current_line.begins_with("if(") or  current_line.begins_with("elif") or  current_line.begins_with("while ")or  current_line.begins_with("while("):
+					count=count+1
+					if current_line.count("and")>0:
+						count=count+current_line.count("and")
+					if current_line.count("or")>0:
+						count=count+current_line.count("or")
+				if current_line.begins_with("for") or  current_line.begins_with("func"):
+					count=count+1
+				
+				current_line=""
+		else:
+			tab=tab+1
+		
+		i=i+1
+
 	#draw_line(Vector2(1.5, 1.0), Vector2(1.5, 4.0), Color.GREEN, 1.0)
+
 

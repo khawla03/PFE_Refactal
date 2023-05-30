@@ -31,16 +31,16 @@ custom_constants/separation = 50
 alignment = 1
 
 [node name="Label" type="Label" parent="Margin/HBox/VBox"]
-margin_top = 208.0
+margin_top = 186.0
 margin_right = 766.0
-margin_bottom = 291.0
+margin_bottom = 269.0
 text = "The following diagram shows how did we use the factory method"
 autowrap = true
 
 [node name="VBox" type="VBoxContainer" parent="Margin/HBox/VBox"]
-margin_top = 341.0
+margin_top = 319.0
 margin_right = 766.0
-margin_bottom = 672.0
+margin_bottom = 693.0
 custom_constants/separation = 30
 
 [node name="Label2" type="Label" parent="Margin/HBox/VBox/VBox"]
@@ -53,15 +53,15 @@ autowrap = true
 [node name="Label" type="Label" parent="Margin/HBox/VBox/VBox"]
 margin_top = 92.0
 margin_right = 766.0
-margin_bottom = 261.0
+margin_bottom = 304.0
 text = "For each Room you need to return the right password to open it using createKey().
- These passwords are the values of the two screens that represents keys."
+ Be careful! for the 2nd room you need to call both methods (executeExpression() and getValue() ) of Key2."
 autowrap = true
 
 [node name="Label3" type="Label" parent="Margin/HBox/VBox/VBox"]
-margin_top = 291.0
+margin_top = 334.0
 margin_right = 766.0
-margin_bottom = 331.0
+margin_bottom = 374.0
 autowrap = true
 
 [node name="TextureRect" type="TextureRect" parent="Margin/HBox"]

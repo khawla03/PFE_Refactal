@@ -1,0 +1,58 @@
+{
+	"events": [
+		{
+			"animation": "[Default]",
+			"animation_length": 0,
+			"animation_wait": true,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://levels/smells/Envy/story/Envy_0.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "This class is using so much ressources from the other class."
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Speech",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://levels/smells/Envy/story/Envy_1.ogg",
+			"volume": 0
+		},
+		{
+			"character": "character-1652920922.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Find the method causing the problem, and solve it! "
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.1",
+		"file": "timeline-1685314873.json",
+		"name": "Envy_0"
+	}
+}

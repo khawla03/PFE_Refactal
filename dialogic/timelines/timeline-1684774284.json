@@ -25,7 +25,7 @@
 			"audio_bus": "Master",
 			"event_id": "dialogic_030",
 			"event_name": "AudioEvent",
-			"file": "",
+			"file": "res://levels/solid/OCP/story/OCP_0.ogg",
 			"volume": 0
 		},
 		{

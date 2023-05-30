@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/OCP_2.ogg-af8657e5466e5e87d8b34a4a381fefaa.oggstr"
+
+[deps]
+
+source_file="res://levels/solid/OCP/story/OCP_2.ogg"
+dest_files=[ "res://.import/OCP_2.ogg-af8657e5466e5e87d8b34a4a381fefaa.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

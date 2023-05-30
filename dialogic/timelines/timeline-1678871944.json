@@ -33,7 +33,7 @@
 			"character": "character-1652920922.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Are you stuck? click on \"H\" Button to see hints"
+			"text": "Are you stuck? click on \"H\" Button to see hints.\nOr check the help panel on the programming interface for syntaxe."
 		},
 		{
 			"emit_signal": "",

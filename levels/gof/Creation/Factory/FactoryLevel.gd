@@ -17,9 +17,7 @@ var pw_digits
 func _ready():
 	change_key2()
 	change_key1()
-	codingGUI.connect("item_pressed", self, "_on_item_pressed")
-
-
+	PlayerUtils.get_player(get_tree()).connect("look_at_item", self, "_on_player_look_at_item")
 
 
 func change_key1():
@@ -82,3 +80,9 @@ func _on_dialogic_signal(arg):
 	elif bonus == "-50":
 		ActionsData.save_action('False answer on the quizz',level_info.title)
 	
+#
+func _on_player_look_at_item(item_name: String):
+	if item_name == "Computer":
+		DialogicUtils.start_dialog(self, "Factory_0", "_on_dialogic_signal")
+		PlayerUtils.get_player(get_tree()).disconnect("look_at_item", self, "_on_player_look_at_item")
+

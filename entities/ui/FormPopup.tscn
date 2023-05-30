@@ -143,14 +143,16 @@ custom_constants/separation = 24
 alignment = 1
 
 [node name="Label" type="RichTextLabel" parent="Panel/Margin/VBox"]
+margin_top = 40.0
 margin_right = 520.0
-margin_bottom = 83.0
+margin_bottom = 123.0
 bbcode_enabled = true
 bbcode_text = "[center]Please fill this evaluation form if you haven't yet [img=<32>]res://assets/textures/emo_pray.png[/img][/center]"
 text = "Please fill this evaluation form if you haven't yet "
 fit_content_height = true
 
 [node name="English" type="Button" parent="Panel/Margin/VBox"]
+visible = false
 margin_top = 107.0
 margin_right = 520.0
 margin_bottom = 163.0
@@ -162,15 +164,15 @@ custom_styles/normal = SubResource( 2 )
 text = "English version "
 
 [node name="French" type="Button" parent="Panel/Margin/VBox"]
-margin_top = 187.0
+margin_top = 147.0
 margin_right = 520.0
-margin_bottom = 243.0
+margin_bottom = 203.0
 mouse_default_cursor_shape = 2
 custom_styles/hover = SubResource( 5 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 2 )
 custom_styles/normal = SubResource( 2 )
-text = "French version "
+text = "Form "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )

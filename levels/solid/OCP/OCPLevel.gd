@@ -71,21 +71,10 @@ func _on_item_pressed(item_name):
 		codingGUI.disconnect("item_pressed", self, "_on_item_pressed")
 
 
-func _on_dialogic_signal(arg):
-	PlayerUtils.set_player_focus(get_tree(), false)
-
-
 func _on_player_look_at_item(item_name: String):
 	if item_name == "Computer":
 		DialogicUtils.start_dialog(self, "OCP_0", "_on_dialogic_signal")
 		PlayerUtils.get_player(get_tree()).disconnect("look_at_item", self, "_on_player_look_at_item")
-
-
-
-
-func _on_HintTimer_timeout():
-	DialogicUtils.start_dialog(self, "Hints", "_on_dialogic_signal")
-	pass # Replace with function body.
 
 
 var nbPress=0

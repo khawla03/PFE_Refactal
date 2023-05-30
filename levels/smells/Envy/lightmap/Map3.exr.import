@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PFE-Facade hint.drawio.png-f797a18107f0a390c7a65fa1ae7d4627.stex"
+path="res://.import/Map3.exr-79beb032a3845b671cd5b1aca2339a9c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/gof/structure/facade/slides/PFE-Facade hint.drawio.png"
-dest_files=[ "res://.import/PFE-Facade hint.drawio.png-f797a18107f0a390c7a65fa1ae7d4627.stex" ]
+source_file="res://levels/smells/Envy/lightmap/Map3.exr"
+dest_files=[ "res://.import/Map3.exr-79beb032a3845b671cd5b1aca2339a9c.stex" ]
 
 [params]
 
@@ -19,11 +19,11 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=false
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=false
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

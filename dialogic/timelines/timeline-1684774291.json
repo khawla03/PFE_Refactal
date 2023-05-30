@@ -25,21 +25,21 @@
 			"audio_bus": "Master",
 			"event_id": "dialogic_030",
 			"event_name": "AudioEvent",
-			"file": "",
+			"file": "res://levels/solid/OCP/story/OCP_1.mp3",
 			"volume": 0
 		},
 		{
 			"character": "character-1652920922.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "This class uses screens to find the password\nWe want to make it open for extention but closed for changements"
+			"text": "This class uses screens to find the password. We want to make it open for extention but closed for changements"
 		},
 		{
 			"audio": "play",
 			"audio_bus": "Master",
 			"event_id": "dialogic_030",
 			"event_name": "AudioEvent",
-			"file": "",
+			"file": "res://levels/solid/OCP/story/OCP_2.ogg",
 			"volume": 0
 		},
 		{

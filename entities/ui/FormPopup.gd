@@ -2,8 +2,8 @@ extends Control
 
 
 const SHOW_DURATION = 0.3
-const FORM_URL_FR = "https://forms.gle/sFFYb7JxdGSTcvdj9"
-const FORM_URL_EN = "https://forms.gle/UMzvME3KS3E3La559"
+const FORM_URL_FR = "https://forms.gle/CRd1QnzKFM4Dramh6"
+const FORM_URL_EN = "https://forms.gle/CRd1QnzKFM4Dramh6"
 
 var shown = false
 export(float) var delay := 0.0

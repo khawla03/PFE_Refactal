@@ -23,7 +23,7 @@ func set_contact(val: String):
 		emit_signal("value_changed", val)
 
 func set_message(val: String):
-	contact = val
+	message = val
 	if messagelabel:
 		messagelabel.text = val
 	if message != "":
