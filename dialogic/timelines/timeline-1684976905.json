@@ -15,10 +15,10 @@
 
 			],
 			"portrait": "",
-			"question": "Convert a class into an other class"
+			"question": "What's the role of Façade?"
 		},
 		{
-			"choice": "Methode names",
+			"choice": "Convert a class into an other class",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",

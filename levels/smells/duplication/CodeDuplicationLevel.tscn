@@ -299,6 +299,8 @@ autostart = true
 
 [node name="HintsTimer" type="Timer" parent="."]
 wait_time = 300.0
+one_shot = true
+autostart = true
 
 [node name="Hints" parent="." instance=ExtResource( 19 )]
 slide_scenes = [ ExtResource( 16 ), ExtResource( 18 ) ]
@@ -314,3 +316,4 @@ slide_scenes = [ ExtResource( 16 ), ExtResource( 18 ) ]
 [connection signal="started_coding" from="Items/Computer" to="." method="_on_Computer_started_coding"]
 [connection signal="interact" from="Items/DoorSingle" to="." method="_on_DoorSingle_interact"]
 [connection signal="timeout" from="ValueChanger" to="." method="_on_ValueChanger_timeout"]
+[connection signal="timeout" from="HintsTimer" to="." method="_on_HintsTimer_timeout"]

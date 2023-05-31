@@ -3,7 +3,7 @@ extends Node
 
 const SAVE_PATH = "user://vars.res"
 const FILE_PASS = "REFACTALdemo092022"
-const GAME_VERSION = "2.0.0"
+const GAME_VERSION = "2.0.1"
 const GAME_VERSION_NUMBER = 2
 
 var vars = {}

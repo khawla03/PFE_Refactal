@@ -10,6 +10,7 @@ const ICON_DISCONNECTED = preload("res://assets/icons/ic_circle_black.png")
 var ItemNode = preload("res://entities/Item.tscn")
 var ItemListElement = preload("res://entities/coding/ItemListElement.tscn")
 var MethodUI = preload("res://entities/coding/MethodUI.tscn")
+var flowGraph = preload("res://entities/coding/ControlFlowGraph.tscn")
 
 var level
 var selected_item
@@ -19,6 +20,7 @@ onready var codingGUI := $CodingGUI
 onready var itemsContainer := $CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/TabContainer/Objects/MarginContainer/VBoxContainer/ScrollContainer/ItemsContainer
 onready var methodContainer := $CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/VBoxContainer/TabContainer2/Methods/MarginContainer/ScrollContainer/MethodContainer
 onready var scriptEditor := $CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/TabContainer/Code/MarginContainer/Control/ScriptEditor
+onready var flowContainer :=$CodingGUI/MarginContainer/VBoxContainer/HSplitContainer/TabContainer/Flowcontrol/ScrollContainer/FlowContainer
 # Dialogs
 onready var dialogBg = $CodingGUI/DialogBg
 onready var newObjectDialog = $CodingGUI/NewObjectDialog
@@ -80,7 +82,10 @@ func _update_methods_ui():
 
 
 func _on_item_pressed(itemElement):
-	
+	for n in flowContainer.get_children():
+		flowContainer.remove_child(n)
+		n.queue_free()
+	draw_control_flow()
 	scriptEditor.load_item(itemElement.item)
 	selected_item = itemElement
 	_reset_items_highlight()
@@ -198,10 +203,13 @@ func draw_control_flow():
 						count=count+current_line.count("or")
 				if current_line.begins_with("for") or  current_line.begins_with("func"):
 					count=count+1
+					var flow = flowGraph.instance()
+					flowContainer.add_child(flow)
 				
 				current_line=""
 		else:
 			tab=tab+1
+			print(tab)
 		
 		i=i+1
 

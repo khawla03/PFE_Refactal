@@ -7,7 +7,7 @@ extends Control
 # var b = "text"
 
 func _draw():
-	draw_line(Vector2(100, 100), Vector2(100, 400), Color.aqua, 1.0)
+	draw_line(Vector2(100, 100), Vector2(100, 400), Color.aqua, 1.5)
 	draw_circle(Vector2(100, 100),10,Color.aqua)
 	pass
 

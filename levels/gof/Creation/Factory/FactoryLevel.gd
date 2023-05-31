@@ -67,7 +67,7 @@ func _on_Button_pressed():
 
 func _on_Door_opened():
 	button.disconnect("pressed",self,"_on_Button_pressed")
-	DialogicUtils.start_dialog(self, "Factort_1", "_on_dialogic_signal")
+	DialogicUtils.start_dialog(self, "Factory_1", "_on_dialogic_signal")
 	computer.is_interactable = false
 	pass # Replace with function body.
 

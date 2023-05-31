@@ -37,6 +37,6 @@ func _on_Door_opened():
 
 
 func _on_item_pressed(item_name):
-	if item_name == "Button":
+	if item_name == "SendButton":
 		DialogicUtils.start_dialog(self, "Envy_0")
 		codingGUI.disconnect("item_pressed", self, "_on_item_pressed")

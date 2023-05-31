@@ -51,12 +51,6 @@ func _on_Door_opened():
 	timer.stop()
 
 
-func _on_HintsTimer_timeout():
-	#DialogicUtils.start_dialog(self, "Hints_time", "_on_dialogic_signal")
-	HintsTimer.stop()
-	pass # Replace with function body.
-
-
 func _on_player_look_at_item(item_name: String):
 	if item_name == "Computer":
 		DialogicUtils.start_dialog(self, "Expert_0", "_on_dialogic_signal")

@@ -197,7 +197,8 @@ one_shot = true
 slide_scenes = [ ExtResource( 14 ), ExtResource( 15 ) ]
 
 [node name="HintsTimer" type="Timer" parent="."]
-wait_time = 180.0
+wait_time = 300.0
+one_shot = true
 autostart = true
 
 [connection signal="opened" from="Items/Door" to="." method="_on_Door_opened"]
